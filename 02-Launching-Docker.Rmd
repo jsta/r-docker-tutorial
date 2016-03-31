@@ -1,0 +1,58 @@
+---
+title: "Launching RStudion in Docker"
+output:
+  dcTemplate::dc_lesson_template:
+    fig_width: 6
+    fig_height: 6
+    highlight: pygments
+---
+
+
+```{r knitr_init, echo = FALSE, cache = FALSE}
+library(knitr)
+
+## Global options
+options(max.print = "75")
+opts_chunk$set(cache = TRUE,
+               prompt = FALSE,
+               tidy = TRUE,
+               comment = "> #",
+               message = FALSE,
+               warning = FALSE)
+opts_knit$set(width = 75)
+```
+
+## Lesson Objectives
+
+- Launch RStudio inside of a Docker container
+- Linking a volume to a Docker container
+- Load into the container plotting it
+
+## Installation
+
+First things first: **install Docker**: on [Linux](https://docs.docker.com/linux/step_one/), [Mac](https://docs.docker.com/mac/step_one/), or [Windows](https://docs.docker.com/windows/step_one/). These install guides link to a bunch of introductory material after installation is complete; it's not necessary to complete those tutorials for this lesson, but they are an excellent introduction to basic Docker usage.
+
+## Launching RStudio in Docker
+
+The first thing we need to do to launch Docker is to open a Unix Shell. If you're on Mac or Windows, in the last step you installed something called the *Docker Quickstart Terminal*; open that up now - it should look like just a plain shell prompt, but really it's pointing at a linux virtual machine that Docker likes to run in, and this is where you should do everything for the rest of this tutorial unless otherwise noted. If you're on a linux machine, then you can just use a plain old terminal prompt.
+
+Next, we will ask Docker to run an image that already exists, we will use the rstudio Docker image from [Rocker](https://github.com/rocker-org/rocker/wiki) which will allow us to run RStudio inside the container. 
+
+** pop-out box**
+`p` and `--rm` are flags that allow you to customize how you run the container. `p` tells Docker that you will be using a port (the location of which we specify afterwards as `8787:8787`). This is necessary to run RStudio in the container. Finally, --rm ensures that when we quit the container, the container is deleted. If we did not do this, everytime we run a container, a version of it will be saved to our local computer. This can lead to the eventual wastage of a lot of disk space until we manually remove these containers. Later we will show you how to save your container if you want to do so.
+
+~~~
+docker run --rm -p 8787:8787 rocker/rstudio
+~~~
+
+## Linking a volume to a Docker container
+
+
+
+## Loading into the container plotting it
+
+
+## Summary
+
+
+## Challenge Questions
