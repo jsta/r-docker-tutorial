@@ -24,26 +24,16 @@ opts_knit$set(width = 75)
 
 ## Installing R Packages
 
-You can install R packages with your RSutudio, like you would on a desktop. The image below shows RStudio server running within a docker image.
+You can install R packages with your RStudio, like you would on a desktop-RStudio-session. The image below shows RStudio server running within a docker image.
 
-![install-pkgs](install-pkgs.png)
-
+![install-pkgs](files/install-pkgs.png)
 
 ### Installing Dependencies external to the R system
 
 Many R packages have dependencies external to R, for example GSL, GDAL, JAGS and so on. To install these on a running rocker container you need to go to the docker command line and type the following:
 
 ```{r external-dependencies, eval=FALSE}
-#docker ps # find the ID of the running container you want to add a package to
-#docker exec -it <container-id> bash # a docker command to start a bash shell in your container
-#apt-get install libgsl0-dev # install the package, in this case GSL
+docker ps # find the ID of the running container you want to add a package to
+docker exec -it <container-id> bash # a docker command to start a bash shell in your container
+apt-get install libgsl0-dev # install the package, in this case GSL
 ```
-
-
-
-go a docker commit in another window
-
-
-
-
-
