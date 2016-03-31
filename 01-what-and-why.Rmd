@@ -25,7 +25,7 @@ opts_knit$set(width = 75)
 Imagine you are working on an analysis in R and you send your code to a friend. 
 Your friend runs exactly this code on exactly the same data set but gets a slightly
 different result. This can have various reasons such as a different operating
-system, a different version of an R package, etc..
+system, a different version of an R package, et cetera.
 Docker is trying to solve problems like that.
 
 **A Docker image can be seen as a computer inside your computer**. The cool
@@ -37,8 +37,9 @@ as you did.
 
 In short, you should use Docker because
 
-- it allows you to wrangle dependencies
-- it makes sure that your analyses are reproducible
+- it allows you to **wrangle dependencies** starting from the operating system up 
+to details such as R and Latex package versions
+- it makes sure that your analyses are **reproducible**.
 
 
 
