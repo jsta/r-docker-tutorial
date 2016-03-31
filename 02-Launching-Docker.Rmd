@@ -38,12 +38,45 @@ The first thing we need to do to launch Docker is to open a Unix Shell. If you'r
 
 Next, we will ask Docker to run an image that already exists, we will use the rstudio Docker image from [Rocker](https://github.com/rocker-org/rocker/wiki) which will allow us to run RStudio inside the container. 
 
-** pop-out box**
+**call-out box**
 `p` and `--rm` are flags that allow you to customize how you run the container. `p` tells Docker that you will be using a port (the location of which we specify afterwards as `8787:8787`). This is necessary to run RStudio in the container. Finally, --rm ensures that when we quit the container, the container is deleted. If we did not do this, everytime we run a container, a version of it will be saved to our local computer. This can lead to the eventual wastage of a lot of disk space until we manually remove these containers. Later we will show you how to save your container if you want to do so.
 
 ~~~
 docker run --rm -p 8787:8787 rocker/rstudio
 ~~~
+
+The command above will lead RStudio-Server to launch invisibly. To connect to it, open a browser and enter `http://`, followed by your ip address, followed by `:8787`. If you are running a Mac or Windows machine, you will find the ip address on the first line of text that appeared in your terminal when you launched the Docker Quickstart Terminal. For example:
+
+~~~
+
+                        ##         .
+                  ## ## ##        ==
+               ## ## ## ## ##    ===
+           /"""""""""""""""""\___/ ===
+      ~~~ {~~ ~~~~ ~~~ ~~~~ ~~~ ~ /  ===- ~~~
+           \______ o           __/
+             \    \         __/
+              \____\_______/
+
+
+docker is configured to use the default machine with IP 192.168.99.100
+For help getting started, check out the docs at https://docs.docker.com
+~~~
+
+Thus, you would enter `http://192.168.99.100:8787` in your browser as the url.
+
+If you are running a Linux machine, you can use `localhost` as the ip address. For example: `http://localhost:8787`
+
+This should lead to you being greeted by the RStudio welcome screen. Log in using:
+
+username: rstudio
+password: rstudio
+
+Now you should be able to work with RStudio in your browser in much the same way as you would on your desktop.
+
+**call-out box**
+If you try to run a Docker container which you have not installed locally then Docker will automatically search for the container on Docker Hub (an online repository for docker images) and download it if it exists.
+
 
 ## Linking a volume to a Docker container
 
