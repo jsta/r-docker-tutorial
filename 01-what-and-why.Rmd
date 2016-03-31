@@ -28,7 +28,7 @@ different result. This can have various reasons such as a different operating
 system, a different version of an R package, et cetera.
 Docker is trying to solve problems like that.
 
-**A Docker image can be seen as a computer inside your computer**. The cool
+**A Docker container can be seen as a computer inside your computer**. The cool
 thing about this virtual computer is that you can send it to your friends; And when
 they start this computer and run your code they will get exactly the same results
 as you did.
@@ -49,3 +49,8 @@ more powerful machine.
 - Sharability: You can send the Docker container to anyone (who knows how to
 work with Docker).
 
+Just a little bit on vocabulary:
+The words *image* and *container* will come up a lot in the following. 
+An instance of an image is called container. An image is the setup of the virtual
+computer. If you run this image, you will have an instance of it, which we call
+containter. You can have many running containers of the same image.
