@@ -1,0 +1,44 @@
+---
+title: "What is Docker and Why should I use it?"
+output:
+  dcTemplate::dc_lesson_template:
+    fig_width: 6
+    fig_height: 6
+    highlight: pygments
+---
+
+
+```{r knitr_init, echo = FALSE, cache = FALSE}
+library(knitr)
+
+## Global options
+options(max.print = "75")
+opts_chunk$set(cache = TRUE,
+               prompt = FALSE,
+               tidy = TRUE,
+               comment = "> #",
+               message = FALSE,
+               warning = FALSE)
+opts_knit$set(width = 75)
+```
+
+Imagine you are working on an analysis in R and you send your code to a friend. 
+Your friend runs exactly this code on exactly the same data set but gets a slightly
+different result. This can have various reasons such as a different operating
+system, a different version of an R package, etc..
+Docker is trying to solve problems like that.
+
+**A Docker image can be seen as a computer inside your computer**. The cool
+thing about this virtual computer is that you can send it to your friends; And when
+they start this computer and run your code they will get exactly the same results
+as you did.
+
+![Computerception](files/computer.jpg)
+
+In short, you should use Docker because
+
+- it allows you to wrangle dependencies
+- it makes sure that your analyses are reproducible
+
+
+
