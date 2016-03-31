@@ -45,6 +45,9 @@ Next, we will ask Docker to run an image that already exists, we will use the rs
 docker run --rm -p 8787:8787 rocker/rstudio
 ~~~
 
+**call-out box**
+If you try to run a Docker container which you have not installed locally then Docker will automatically search for the container on Docker Hub (an online repository for docker images) and download it if it exists.
+
 The command above will lead RStudio-Server to launch invisibly. To connect to it, open a browser and enter `http://`, followed by your ip address, followed by `:8787`. If you are running a Mac or Windows machine, you will find the ip address on the first line of text that appeared in your terminal when you launched the Docker Quickstart Terminal. For example:
 
 ~~~
@@ -74,8 +77,6 @@ password: rstudio
 
 Now you should be able to work with RStudio in your browser in much the same way as you would on your desktop.
 
-**call-out box**
-If you try to run a Docker container which you have not installed locally then Docker will automatically search for the container on Docker Hub (an online repository for docker images) and download it if it exists.
 
 
 ## Linking a volume to a Docker container
