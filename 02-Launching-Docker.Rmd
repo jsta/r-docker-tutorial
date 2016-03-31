@@ -48,7 +48,7 @@ docker run --rm -p 8787:8787 rocker/rstudio
 **call-out box**
 If you try to run a Docker container which you have not installed locally then Docker will automatically search for the container on Docker Hub (an online repository for docker images) and download it if it exists.
 
-The command above will lead RStudio-Server to launch invisibly. To connect to it, open a browser and enter `http://`, followed by your ip address, followed by `:8787`. If you are running a Mac or Windows machine, you will find the ip address on the first line of text that appeared in your terminal when you launched the Docker Quickstart Terminal. For example:
+The command above will lead RStudio-Server to launch invisibly. To connect to it, open a browser and enter `http://`, followed by your ip address, followed by `:8787`. If you are running a Mac or Windows machine, you will find the ip address on the first line of text that appeared in your terminal when you launched the Docker Quickstart Terminal. For example, you should see:
 
 ~~~
 
@@ -77,11 +77,17 @@ password: rstudio
 
 Now you should be able to work with RStudio in your browser in much the same way as you would on your desktop.
 
+-> get students to look around and see that the file system is empty and that they cannot see things installed on their local machine.
 
+-> get students to write simple code make a plot and save the plot (via export in RStudio) and the code as an Rscript.
+
+Now, given that we used the --rm flag when we launched the Docker container, anything we create on the machine will be gone. Let's verify this. First, close the browser tab where you have RStudio open, and then go to your terminal window from where you launched the Docker container and type Contol+C.
+
+Now relaunch your a Docker container using the rstudio image as you did previously, e.g., docker run --rm -p 8787:8787 rocker/rstudio in the terminal and typing `http://192.168.99.100:8787` in your browser window and see if the rscript and plot you saved is still there.
 
 ## Linking a volume to a Docker container
 
-
+Well that leads us to the question of, how can we save our work if the container is deleted when we exit the container? One solution is to link a volume (for example your local hard drive) to the container so that you can access the data there as well as being able to save things there.
 
 ## Loading into the container plotting it
 
