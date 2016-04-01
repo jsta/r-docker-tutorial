@@ -20,3 +20,7 @@ we go into the the details on how to use it for a reproducible transportable pro
 ## Links
 - [Website](http://ropenscilabs.github.io/r-docker-tutorial)
 - [For lesson developers](http://pad.software-carpentry.org/RopenSci-docker-tutorial)
+
+## Instructor notes
+Bring thumb drives with the docker images. If a bunch of people want to download
+the same 3GB image you might run into problems.
