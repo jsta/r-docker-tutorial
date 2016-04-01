@@ -1,0 +1,6 @@
+{
+  "name": "R-docker-tutorial",
+  "tagline": "A docker tutorial for reproducible research",
+  "body": "# r-docker-tutorial\r\nA docker tutorial for reproducible research\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
