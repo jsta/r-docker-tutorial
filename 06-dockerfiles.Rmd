@@ -11,7 +11,9 @@ Dockerfiles are a set of instructions on how to add things to a base image. They
 FROM rocker/ropensci:latest
 ```
 
-This tells Docker to start with the `rocker/ropensci` base image - that's what we've been using so far. The `FROM` command must always always always be the first thing in your Dockerfile; this is the bottom crust of the pie we are baking.
+This tells Docker to start with the `rocker/ropensci` base image - that's what we've been using so far. 
+[//]: # (**TODO: Have we really been using this so far?**)
+The `FROM` command must always always always be the first thing in your Dockerfile; this is the bottom crust of the pie we are baking.
 
 Next, let's add another layer on top of our base, in order to have `gapminder` pre-installed and ready to go:
 
@@ -20,7 +22,7 @@ RUN wget https://cran.r-project.org/src/contrib/gapminder_0.1.0.tar.gz
 RUN R CMD INSTALL gapminder_0.1.0.tar.gz
 ```
 
-`RUN` commands in your Dockerfile execute shell commands. In this example, the first line downloads the gapminder source from CRAN, and the second line installs it. Save that file, and return to your docker terminal; we can now build our image by doing:
+`RUN` commands in your Dockerfile execute shell commands. In this example, the first line downloads the gapminder source from CRAN, and the second line installs it (this is almost the same as `install.packages()` from within R, but it does not install the latest version but the version specified; here 0.1.0). Save that file, and return to your docker terminal; we can now build our image by doing:
 
 ```
 docker build -t my-r-image .
@@ -46,6 +48,7 @@ gapminder
 ```
 
 And there it is - gapminder is pre-installed and ready to go in your new docker image. As noted in the previous section, we can shut down and remove all our running containers in one command:
+[//]: # (**TODO: Have we really talked about this before? Do we just want to use Ctlr+c**)
 
 ```
 docker rm -f $(docker ps -a -q)
