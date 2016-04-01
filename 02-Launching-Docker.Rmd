@@ -77,6 +77,10 @@ password: rstudio
 
 Now you should be able to work with RStudio in your browser in much the same way as you would on your desktop.
 
+The image below shows RStudio server running within a docker image. You should see something similar on your machine.
+
+![install-pkgs](files/install-pkgs.png)
+
 Try to now look at your files of your virtual computer (docker container). Go to
 file -> open file. You will see that there are actually no files. The reason for
 this is that this image came with no files.
