@@ -22,6 +22,13 @@ opts_chunk$set(cache = TRUE,
 opts_knit$set(width = 75)
 ```
 
+## Lesson Objectives
+
+- Understanding the basic idea of Docker
+- Seeing the point of why Docker is useful
+
+
+## Why would I want to use Docker?
 Imagine you are working on an analysis in R and you send your code to a friend. 
 Your friend runs exactly this code on exactly the same data set but gets a slightly
 different result. This can have various reasons such as a different operating
@@ -49,7 +56,7 @@ more powerful machine.
 - Sharability: You can send the Docker container to anyone (who knows how to
 work with Docker).
 
-Just a little bit on vocabulary:
+## Basic vocabulary
 The words *image* and *container* will come up a lot in the following. 
 An instance of an image is called container. An image is the setup of the virtual
 computer. If you run this image, you will have an instance of it, which we call

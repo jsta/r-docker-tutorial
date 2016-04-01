@@ -1,5 +1,5 @@
 ---
-title: "Making Commits"
+title: "Committing Locally"
 output:
   dcTemplate::dc_lesson_template:
     fig_width: 6
@@ -21,4 +21,15 @@ opts_chunk$set(cache = TRUE,
                warning = FALSE)
 opts_knit$set(width = 75)
 ```
+
+## Committing Locally
+If you installed R libraries with RStudio server, closing it after would lose your installations. When you login back in again, your installations will not be there anymore. To avoid this, you should open up a new terminal and commit your changes locally, as illustrated below.
+```{r commit-locally, eval = FALSE}
+docker commit -m "built megahit" fa1bf23148a5 megahit
+```
+
+
+
+
+
 
