@@ -77,9 +77,22 @@ password: rstudio
 
 Now you should be able to work with RStudio in your browser in much the same way as you would on your desktop.
 
--> get students to look around and see that the file system is empty and that they cannot see things installed on their local machine.
+Try to now look at your files of your virtual computer (docker container). Go to
+file -> open file. You will see that there are actually no files. The reason for
+this is that this image came with no files.
 
--> get students to write simple code make a plot and save the plot (via export in RStudio) and the code as an Rscript.
+Next, open a new R Script, e.g. by going to file -> New file -> R Script. 
+Enter the following code in the script, run it and save it.
+```{r, eval=FALSE}
+x <- 1:5
+y <- 6:10
+
+pdf("firstplot.pdf")
+plot(x, y)
+dev.off()
+```
+If you look at your files again now, you will see two files (the plot and the 
+script).
 
 Now, given that we used the --rm flag when we launched the Docker container, anything we create on the machine will be gone. Let's verify this. First, close the browser tab where you have RStudio open, and then go to your terminal window from where you launched the Docker container and type Contol+C.
 
