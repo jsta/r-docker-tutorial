@@ -38,15 +38,15 @@ The first thing we need to do to launch Docker is to open a Unix Shell. If you'r
 
 Next, we will ask Docker to run an image that already exists, we will use the hadleyverse Docker image from [Rocker](https://github.com/rocker-org/rocker/wiki) which will allow us to run RStudio inside the container and has many useful R packages already installed. 
 
-**call-out box**
-`p` and `--rm` are flags that allow you to customize how you run the container. `p` tells Docker that you will be using a port (the location of which we specify afterwards as `8787:8787`). This is necessary to run RStudio in the container. Finally, --rm ensures that when we quit the container, the container is deleted. If we did not do this, everytime we run a container, a version of it will be saved to our local computer. This can lead to the eventual wastage of a lot of disk space until we manually remove these containers. Later we will show you how to save your container if you want to do so.
+Optional:
+*`p` and `--rm` are flags that allow you to customize how you run the container. `p` tells Docker that you will be using a port (the location of which we specify afterwards as `8787:8787`). This is necessary to run RStudio in the container. Finally, --rm ensures that when we quit the container, the container is deleted. If we did not do this, everytime we run a container, a version of it will be saved to our local computer. This can lead to the eventual wastage of a lot of disk space until we manually remove these containers. Later we will show you how to save your container if you want to do so.*
 
 ~~~
 docker run --rm -p 8787:8787 rocker/hadleyverse
 ~~~
 
-[//]: # (**TODO: call-out box**)
-If you try to run a Docker container which you have not installed locally then Docker will automatically search for the container on Docker Hub (an online repository for docker images) and download it if it exists.
+Optional:
+*If you try to run a Docker container which you have not installed locally then Docker will automatically search for the container on Docker Hub (an online repository for docker images) and download it if it exists.*
 
 The command above will lead RStudio-Server to launch invisibly. To connect to it, open a browser and enter `http://`, followed by your ip address, followed by `:8787`. If you are running a Mac or Windows machine, you will find the ip address on the first line of text that appeared in your terminal when you launched the Docker Quickstart Terminal. For example, you should see:
 
