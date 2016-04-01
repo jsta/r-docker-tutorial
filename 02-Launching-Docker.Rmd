@@ -1,5 +1,5 @@
 ---
-title: "Launching RStudion in Docker"
+title: "Launching RStudio in Docker"
 output:
   dcTemplate::dc_lesson_template:
     fig_width: 6
@@ -36,13 +36,13 @@ First things first: **install Docker**: on [Linux](https://docs.docker.com/linux
 
 The first thing we need to do to launch Docker is to open a Unix Shell. If you're on Mac or Windows, in the last step you installed something called the *Docker Quickstart Terminal*; open that up now - it should look like just a plain shell prompt (`~$`), but really it's pointing at a linux virtual machine that Docker likes to run in, and this is where you should do everything for the rest of this tutorial unless otherwise noted. If you're on a linux machine, then you can just use a plain old terminal prompt.
 
-Next, we will ask Docker to run an image that already exists, we will use the rstudio Docker image from [Rocker](https://github.com/rocker-org/rocker/wiki) which will allow us to run RStudio inside the container. 
+Next, we will ask Docker to run an image that already exists, we will use the hadleyverse Docker image from [Rocker](https://github.com/rocker-org/rocker/wiki) which will allow us to run RStudio inside the container and has many useful R packages already installed. 
 
 **call-out box**
 `p` and `--rm` are flags that allow you to customize how you run the container. `p` tells Docker that you will be using a port (the location of which we specify afterwards as `8787:8787`). This is necessary to run RStudio in the container. Finally, --rm ensures that when we quit the container, the container is deleted. If we did not do this, everytime we run a container, a version of it will be saved to our local computer. This can lead to the eventual wastage of a lot of disk space until we manually remove these containers. Later we will show you how to save your container if you want to do so.
 
 ~~~
-docker run --rm -p 8787:8787 rocker/rstudio
+docker run --rm -p 8787:8787 rocker/hadleyverse
 ~~~
 
 [//]: # (**TODO: call-out box**)
@@ -82,24 +82,25 @@ file -> open file. You will see that there are actually no files. The reason for
 this is that this image came with no files.
 Next, open a new R Script, e.g. by going to file -> New file -> R Script. 
 Enter the following code in the script, run it and save it.
+
 ```{r, eval=FALSE}
+# make x the numbers from 1 to 5, and y the numbers from 6-10
 x <- 1:5
 y <- 6:10
 
-pdf("firstplot.pdf")
+# plot x against y
 plot(x, y)
-dev.off()
 ```
-If you look at your files again now, you will see two files (the plot and the 
-script).
+
+If you look at your files again now, you will see the script file.
 
 Now, given that we used the `--rm` flag when we launched the Docker container, anything we create on the machine will be gone. Let's verify this. First, close the browser tab where you have RStudio open, and then go to your terminal window from where you launched the Docker container and type Contol+C. This shuts down the 
 Docker container.
 
-Now relaunch your a Docker container using the RStudio image as you did previously, e.g., `docker run --rm -p 8787:8787 rocker/rstudio` in the terminal and typing `http://192.168.99.100:8787` in your browser window and see if the rscript and plot you saved is still there.
+Now relaunch your a Docker container using the RStudio image as you did previously, e.g., `docker run --rm -p 8787:8787 rocker/hadleyverse` in the terminal and typing `http://192.168.99.100:8787` in your browser window and see if the rscript and plot you saved is still there.
 
 
-## Linking a volume to a Docker container
+## Linking a volume to a Docker container to access data and save files
 
 That leads us to the question of, how can we save our work if the container is deleted when we exit the container? One solution is to link a volume (for example your local hard drive) to the container so that you can access the data there as well as being able to save things there.
 
@@ -108,17 +109,38 @@ This time when we launch our container we will use the `-v` flag along with the 
 [//]: # (**TODO: Explain how it can differ? /Users/<yourusername>/...?**)
 
 ~~~
-docker run --rm -p 8787:8787 -v /Users/tiffanytimbers/Documents/DC/r-docker-tutorial:/home/rstudio/r-docker-tutorial rocker/rstudio
+docker run --rm -p 8787:8787 -v /Users/tiffanytimbers/Documents/DC/r-docker-tutorial:/home/hadleyverse/r-docker-tutorial rocker/hadleyverse
 ~~~
 
 Again, you will have to enter something like `http://192.168.99.100:8787` in your browser as the url to get RStudio to run. 
 
-This time when you launch RStudio and
+This time when you launch RStudio in a Docker container and you try to open a file you should be able to see some files and directories. Now set the working directory to the directory called `r-docker-tutorial` and load the `gapminder-FiveYearData.csv` into R via `read.table`.
 
-## Loading into the container plotting it
+```{r knitr_init, echo = FALSE, cache = FALSE}
+# load gapminder data from a csv on your computer
+gap5yr <- read.csv(file = 'data/gapminder-FiveYearData.csv')
+```
 
+Now lets plot GDP per capita against  life expectancy.
+
+```{r knitr_init, echo = FALSE, cache = FALSE}
+# load ggplot library
+library(ggplot2)
+
+# plot GDP against  life expectancy
+qplot(gap5yr$lifeExp, gap5yr$gdpPercap)
+
+# save the plot
+ggsave(filename = 'data/GDP_LifeExp.pdf')
+```
+
+Let's also save the script as `plot_GDP_LifeExp.R` in the `r-docker-tutorial` directory. Now close the RStudio browser and exit your Docker container via the terminal using Control+C. Then look inside the `r-docker-tutorial` and `r-docker-tutorial/data` directories on your laptop to see if you can see the two files you created.
 
 ## Summary
 
+In this lesson we learned how to launch a Docker container that allows us to run RStudio in a browser. We learned that using the `--rm` flag when we run Docker makes the container ephemeral; meaning that it is automatically deleted after we close the container. We do this as to not build up a large collection of containers on our machine and waste space. We also learned that we can link a volume of our laptop to the Docker container if we want to be able to access and save data, scripts and any other files. 
 
-## Challenge Questions
+The container we used already had R, RStudio and several useful R packages installed. In later lessons we will learn how to modify this container to install new packages, and where we can find other Docker containers that might be useful for our work.
+
+## Challenge Questions 
+TBD
