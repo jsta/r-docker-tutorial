@@ -24,7 +24,7 @@ opts_knit$set(width = 75)
 
 ## Installing R Packages
 
-You can install R packages with your RStudio, like you would on a desktop-RStudio-session. The image below shows RStudio server running within a docker image.
+You can install R packages with RStudio in the browser, like you would on a desktop-RStudio-session. The image below shows RStudio server running within a docker image.
 
 ![install-pkgs](files/install-pkgs.png)
 
