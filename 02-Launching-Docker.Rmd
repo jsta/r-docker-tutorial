@@ -45,7 +45,7 @@ Next, we will ask Docker to run an image that already exists, we will use the rs
 docker run --rm -p 8787:8787 rocker/rstudio
 ~~~
 
-**call-out box**
+[//]: # (**TODO: call-out box**)
 If you try to run a Docker container which you have not installed locally then Docker will automatically search for the container on Docker Hub (an online repository for docker images) and download it if it exists.
 
 The command above will lead RStudio-Server to launch invisibly. To connect to it, open a browser and enter `http://`, followed by your ip address, followed by `:8787`. If you are running a Mac or Windows machine, you will find the ip address on the first line of text that appeared in your terminal when you launched the Docker Quickstart Terminal. For example, you should see:
@@ -80,7 +80,6 @@ Now you should be able to work with RStudio in your browser in much the same way
 Try to now look at your files of your virtual computer (docker container). Go to
 file -> open file. You will see that there are actually no files. The reason for
 this is that this image came with no files.
-
 Next, open a new R Script, e.g. by going to file -> New file -> R Script. 
 Enter the following code in the script, run it and save it.
 ```{r, eval=FALSE}
@@ -94,15 +93,19 @@ dev.off()
 If you look at your files again now, you will see two files (the plot and the 
 script).
 
-Now, given that we used the --rm flag when we launched the Docker container, anything we create on the machine will be gone. Let's verify this. First, close the browser tab where you have RStudio open, and then go to your terminal window from where you launched the Docker container and type Contol+C.
+Now, given that we used the `--rm` flag when we launched the Docker container, anything we create on the machine will be gone. Let's verify this. First, close the browser tab where you have RStudio open, and then go to your terminal window from where you launched the Docker container and type Contol+C. This shuts down the 
+Docker container.
 
-Now relaunch your a Docker container using the rstudio image as you did previously, e.g., docker run --rm -p 8787:8787 rocker/rstudio in the terminal and typing `http://192.168.99.100:8787` in your browser window and see if the rscript and plot you saved is still there.
+Now relaunch your a Docker container using the RStudio image as you did previously, e.g., `docker run --rm -p 8787:8787 rocker/rstudio` in the terminal and typing `http://192.168.99.100:8787` in your browser window and see if the rscript and plot you saved is still there.
+
 
 ## Linking a volume to a Docker container
 
-Well that leads us to the question of, how can we save our work if the container is deleted when we exit the container? One solution is to link a volume (for example your local hard drive) to the container so that you can access the data there as well as being able to save things there.
+That leads us to the question of, how can we save our work if the container is deleted when we exit the container? One solution is to link a volume (for example your local hard drive) to the container so that you can access the data there as well as being able to save things there.
 
-This time when we launch our container we will use the `-v` flag along with the path to our projects root directory. Your launch command should look something like this, although the path will differ depending on where you saved the data to on your computer.
+This time when we launch our container we will use the `-v` flag along with the path to our projects root directory. Your launch command should look something like this, although the path will differ depending on where you saved the data to on your computer. 
+
+[//]: # (**TODO: Explain how it can differ? /Users/<yourusername>/...?**)
 
 ~~~
 docker run --rm -p 8787:8787 -v /Users/tiffanytimbers/Documents/DC/r-docker-tutorial:/home/rstudio/r-docker-tutorial rocker/rstudio
