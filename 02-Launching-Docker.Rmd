@@ -83,14 +83,14 @@ this is that this image came with no files.
 Next, open a new R Script, e.g. by going to file -> New file -> R Script. 
 Enter the following code in the script, run it and save it.
 
-```{r, eval=FALSE}
+~~~
 # make x the numbers from 1 to 5, and y the numbers from 6-10
 x <- 1:5
 y <- 6:10
 
 # plot x against y
 plot(x, y)
-```
+~~~
 
 If you look at your files again now, you will see the script file.
 
@@ -116,14 +116,14 @@ Again, you will have to enter something like `http://192.168.99.100:8787` in you
 
 This time when you launch RStudio in a Docker container and you try to open a file you should be able to see some files and directories. Now set the working directory to the directory called `r-docker-tutorial` and load the `gapminder-FiveYearData.csv` into R via `read.table`.
 
-```{r knitr_init, echo = FALSE, cache = FALSE}
+~~~
 # load gapminder data from a csv on your computer
 gap5yr <- read.csv(file = 'data/gapminder-FiveYearData.csv')
-```
+~~~
 
 Now lets plot GDP per capita against  life expectancy.
 
-```{r knitr_init, echo = FALSE, cache = FALSE}
+~~~
 # load ggplot library
 library(ggplot2)
 
@@ -132,7 +132,7 @@ qplot(gap5yr$lifeExp, gap5yr$gdpPercap)
 
 # save the plot
 ggsave(filename = 'data/GDP_LifeExp.pdf')
-```
+~~~
 
 Let's also save the script as `plot_GDP_LifeExp.R` in the `r-docker-tutorial` directory. Now close the RStudio browser and exit your Docker container via the terminal using Control+C. Then look inside the `r-docker-tutorial` and `r-docker-tutorial/data` directories on your laptop to see if you can see the two files you created.
 
