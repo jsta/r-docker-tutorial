@@ -108,9 +108,10 @@ Now relaunch your a Docker container using the RStudio image as you did previous
 
 That leads us to the question of, how can we save our work if the container is deleted when we exit the container? One solution is to link a volume (for example your local hard drive) to the container so that you can access the data there as well as being able to save things there.
 
-This time when we launch our container we will use the `-v` flag along with the path to our projects root directory. Your launch command should look something like this, although the path will differ depending on where you saved the data to on your computer. 
+This time when we launch our container we will use the `-v` flag along with the path to our projects root directory. Your launch command should look something like this, although the path will differ depending on where you saved the data to on your computer and on the container. On the left hand side of the `:` is the path
+on your own computer. On the right hand side is the path on the container. This
+should almost always start with `/home/`.
 
-[//]: # (**TODO: Explain how it can differ? /Users/<yourusername>/...?**)
 
 ~~~
 docker run --rm -p 8787:8787 -v /Users/tiffanytimbers/Documents/DC/r-docker-tutorial:/home/hadleyverse/r-docker-tutorial rocker/hadleyverse
