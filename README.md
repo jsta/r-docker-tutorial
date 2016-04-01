@@ -11,7 +11,7 @@ about R and RStudio.
 2. [Lesson 02 Launching Docker](02-Launching-Docker.html)
 3. [Lesson 03 Install packages](03-install-packages.html) 
 4. [Lesson 04 Commit](04-commit.html)
-5. Lesson 05 Dockerhub
+5. [Lesson 05 Dockerhub](05-Dockerhub.html)
 6. [Lesson 06 Dockerfiles](06-dockerfiles.html)
 
 
