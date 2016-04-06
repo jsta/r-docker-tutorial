@@ -112,7 +112,7 @@ head(gapminder)</code></pre>
 <p>To save this specific version of the image we need to find this containers specific hash. We can see this by typing the following command in the new terminal window, and it will list all running Docker containers:</p>
 <pre><code>docker ps</code></pre>
 <p>The output should look something like what is shown below, and the specific hash for this container is the alphanumeric text in the first column.</p>
-<pre><code>8ada7bc86710        rocker/hadleyverse   &quot;/init&quot;             6 seconds ago       Up 5 seconds        1410/tcp, 0.0.0.0:8787-&gt;8787/tcp   sick_bhabha</code></pre>
+<pre><code>f9ca71428352        rocker/hadleyverse   &quot;/init&quot;             6 seconds ago       Up 5 seconds        1410/tcp, 0.0.0.0:8787-&gt;8787/tcp   sick_bhabha</code></pre>
 <p>Now to save this version of the image, in the new terminal window type:</p>
 <pre><code>docker commit -m &quot;hadleyverse + gapminder&quot; f9ca71428352 hadleyverse_gapminder</code></pre>
 <p>To save this Docker image we have to provide a commit message to describe the change that we have made to the image. We do this by passing the <code>-m</code> flag followed by the message in quotes. We also need to provide the specific hash for this version of the container (here f9ca71428352). Finally, we also provide a new name for the new image. We called this new image <code>hadleyverse_gapminder</code>.</p>

@@ -50,7 +50,7 @@ docker ps
 The output should look something like what is shown below, and the specific hash for this container is the alphanumeric text in the first column.
 
 ~~~
-8ada7bc86710        rocker/hadleyverse   "/init"             6 seconds ago       Up 5 seconds        1410/tcp, 0.0.0.0:8787->8787/tcp   sick_bhabha
+f9ca71428352        rocker/hadleyverse   "/init"             6 seconds ago       Up 5 seconds        1410/tcp, 0.0.0.0:8787->8787/tcp   sick_bhabha
 ~~~
 
 Now to save this version of the image, in the new terminal window type:
