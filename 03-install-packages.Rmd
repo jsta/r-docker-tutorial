@@ -84,3 +84,6 @@ docker ps # find the ID of the running container you want to add a package to
 docker exec -it <container-id> bash # a docker command to start a bash shell in your container
 apt-get install libgsl0-dev # install the package, in this case GSL
 ```
+
+If you get an error message when running `apt-get install libgsl0-dev` try running
+`apt-get update` first.

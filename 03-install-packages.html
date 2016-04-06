@@ -128,6 +128,7 @@ rocker/hadleyverse      latest              7cba8b06f25e        9 days ago      
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">docker ps <span class="co"># find the ID of the running container you want to add a package to</span>
 docker exec -it &lt;container-id&gt;<span class="st"> </span>bash <span class="co"># a docker command to start a bash shell in your container</span>
 apt-get install libgsl0-dev <span class="co"># install the package, in this case GSL</span></code></pre></div>
+<p>If you get an error message when running <code>apt-get install libgsl0-dev</code> try running <code>apt-get update</code> first.</p>
 </div>
 </div>
 
