@@ -117,18 +117,21 @@ head(gapminder)</code></pre>
 <pre><code>docker commit -m &quot;hadleyverse + gapminder&quot; f9ca71428352 hadleyverse_gapminder</code></pre>
 <p>To save this Docker image we have to provide a commit message to describe the change that we have made to the image. We do this by passing the <code>-m</code> flag followed by the message in quotes. We also need to provide the specific hash for this version of the container (here f9ca71428352). Finally, we also provide a new name for the new image. We called this new image <code>hadleyverse_gapminder</code>.</p>
 <p>We can see that we now have two Docker images saved on our laptops by typing:</p>
-<pre><code>docker images</code></pre>
+<pre><code>docker images </code></pre>
 <pre><code>REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE
 hadleyverse_gapminder   latest              1cf34acb0d60        30 minutes ago      2.84 GB
 rocker/hadleyverse      latest              7cba8b06f25e        9 days ago          2.838 GB</code></pre>
 <p>You can test that this worked by running a Docker container from each image. You will find that the Gapminder package is only installed on the hadleyverse_gapminder image and not on the rocker/hadleyverse image.</p>
 <div id="installing-dependencies-external-to-the-r-system" class="section level3">
 <h3>Installing Dependencies external to the R system</h3>
-<p>Many R packages have dependencies external to R, for example GSL, GDAL, JAGS and so on. To install these on a running rocker container you need to go to the docker command line and type the following:</p>
+<p>Many R packages have dependencies external to R, for example GSL, GDAL, JAGS and so on. To install these on a running rocker container you need to go to the docker command line (in a new terminal window) and type the following:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">docker ps <span class="co"># find the ID of the running container you want to add a package to</span>
 docker exec -it &lt;container-id&gt;<span class="st"> </span>bash <span class="co"># a docker command to start a bash shell in your container</span>
 apt-get install libgsl0-dev <span class="co"># install the package, in this case GSL</span></code></pre></div>
 <p>If you get an error message when running <code>apt-get install libgsl0-dev</code> try running <code>apt-get update</code> first.</p>
+<p>To save these changes go to yet another terminal window and save as above using <code>docker commit</code>, e.g.</p>
+<pre><code>docker commit -m &quot;hadleyverse + gapminder + GSL&quot; &lt;container id&gt;  hadleyverse_gapminder_gsl</code></pre>
+<p>Now you can go to the terminal window in which you typed the <code>docker exec</code> command and close the docker container by typing <code>exit</code>. You</p>
 </div>
 </div>
 
