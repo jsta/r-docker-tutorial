@@ -22,8 +22,9 @@ opts_chunk$set(cache = TRUE,
 opts_knit$set(width = 75)
 ```
 
+## Sorry this tutorial is still in development. This part will be available soon.
 
 
-
-
+Next: Go to [Lesson 06 Dockerfiles](06-dockerfiles.html) or back to the 
+[main page](http://ropenscilabs.github.io/r-docker-tutorial/).
 

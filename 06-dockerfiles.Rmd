@@ -3,6 +3,8 @@ title: "06-dockerfiles"
 output: html_document
 ---
 
+## Sorry this tutorial is still in development. This part will be completed soon.
+
 Earlier, we got started with a base image that let us run RStudio from within Docker. Next, we'd like to add more things to our container, like R packages and data that will be pre-installed and ready to go as soon as we start up. To do so, we need to learn about Dockerfiles.
 
 Dockerfiles are a set of instructions on how to add things to a base image. They build custom images up in a series of *layers*. In a new file called `Dockerfile`, put the following:
@@ -88,3 +90,6 @@ Step 3 : RUN R CMD INSTALL gapminder_0.1.0.tar.gz
  ---> eeb8ef4dc0a8
 ```
 Noting that a cached version of the commands was being used. When you rebuild an image, Docker checks the previous version(s) of that image to see if the same commands were executed previously; each of those steps is preserved as a separate layer, and Docker is smart enough to re-use those layers if they are unchanged and *in the same order* as previously. Therefore, once you've got part of your setup process figured out (particularly if it's a slow part), leave it near the top of your Dockerfile and don't put anything above or between those lines, particularly things that change frequently; this can substantially speed up your build process. 
+
+
+Click here to get back to the [main page](http://ropenscilabs.github.io/r-docker-tutorial/).
