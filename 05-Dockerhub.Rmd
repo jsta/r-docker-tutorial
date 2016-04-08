@@ -1,5 +1,5 @@
 ---
-title: "Pushing and Pulling to and from Dockerhub"
+title: "Pushing and Pulling to and from Docker Hub"
 output:
   dcTemplate::dc_lesson_template:
     fig_width: 6
@@ -22,7 +22,71 @@ opts_chunk$set(cache = TRUE,
 opts_knit$set(width = 75)
 ```
 
-## Sorry this tutorial is still in development. This part will be available soon.
+## Lesson Objectives
+
+- Understanding where images come from
+- Pulling a Docker image from Docker Hub
+- Pushing a Docker image to Docker Hub
+
+
+## Getting an image from Docker Hub
+[Docker Hub](https://hub.docker.com/) is the place where open Docker images are stored. 
+When we ran our first image by typing
+```{}
+docker run --rm -p 8787:8787 rocker/hadleyverse
+
+```
+the software first checked if this image is available on your computer and since it wasn't it 
+downloaded the image from Docker Hub. So getting an image from Docker Hub works sort of automatically.
+If you just want to pull the image but not run it, you can also do
+```{}
+docker pull rocker/hadleyverse
+
+```
+
+
+
+## Getting an image to Docker Hub
+Imagine you made your own Docker image and would like to share it with the world you can sign up for an
+account on https://hub.docker.com/. After verifying your email you are ready to go and upload your first
+docker image.
+
+1. Log in on https://hub.docker.com/
+2. Click on *Create Repository*.
+3. Choose a name (e.g. hadleyverse_gapminder) and a description for your repository and click *Create*.
+4. Log into the Docker Hub from the command line
+```{}
+docker login --username=yourhubusername --email=youremail@company.com
+```
+just with your own user name and email that you used for the account.
+Enter your password when prompted. If everything worked you will get a message similar to
+```{}
+WARNING: login credentials saved in /home/username/.docker/config.json
+Login Succeeded
+```
+5. Check the image ID using
+```{}
+docker images
+```
+and what you will see will be similar to
+```{}
+REPOSITORY                         TAG                 IMAGE ID            CREATED             SIZE
+hadleyverse_gapminder_addpackage   latest              95fc956d3a73        2 days ago          2.902 GB
+hadleyverse_gapminder              latest              6a131c8f7c2b        2 days ago          2.87 GB
+rocker/hadleyverse                 latest              2a039f703dad        3 days ago          2.869 GB
+```
+and tag your image
+```{}
+docker tag 6a131c8f7c2b yourhubusername/hadleyverse_gapminder:firsttry
+```
+The number must match the image ID and `:firsttry` is the tag.
+<!--- TODO: Any suggestions on which tag to use? Are there good practices here? -->
+6. Push your image to the repository you created
+```{}
+docker push heidiseibold/hadleyverse_gapminder
+```
+
+Your image is now available for everyone to use.
 
 
 Next: Go to [Lesson 06 Dockerfiles](06-dockerfiles.html) or back to the 
