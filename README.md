@@ -13,9 +13,8 @@ we go into the the details on how to use it for a reproducible transportable pro
 1. [Lesson 01 What and Why](01-what-and-why.html)
 2. [Lesson 02 Launching Docker](02-Launching-Docker.html)
 3. [Lesson 03 Install packages](03-install-packages.html) 
-4. [Lesson 04 Commit](04-commit.html)
-5. [Lesson 05 Dockerhub](05-Dockerhub.html)
-6. [Lesson 06 Dockerfiles](06-dockerfiles.html)
+5. [Lesson 04 Dockerhub](04-Dockerhub.html)
+6. [Lesson 05 Dockerfiles](05-dockerfiles.html)
 
 ## Links
 - [Website](http://ropenscilabs.github.io/r-docker-tutorial)
