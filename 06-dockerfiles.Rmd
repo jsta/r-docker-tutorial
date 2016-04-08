@@ -14,7 +14,7 @@ FROM rocker/ropensci:latest
 ```
 
 This tells Docker to start with the `rocker/ropensci` base image - that's what we've been using so far. 
-[//]: # (**TODO: Have we really been using this so far?**)
+<!--- (TODO: Have we really been using this so far?) -->
 The `FROM` command must always always always be the first thing in your Dockerfile; this is the bottom crust of the pie we are baking.
 
 Next, let's add another layer on top of our base, in order to have `gapminder` pre-installed and ready to go:
@@ -50,7 +50,7 @@ gapminder
 ```
 
 And there it is - gapminder is pre-installed and ready to go in your new docker image. As noted in the previous section, we can shut down and remove all our running containers in one command:
-[//]: # (**TODO: Have we really talked about this before? Do we just want to use Ctlr+c**)
+<!--- (TODO: Have we really talked about this before? Do we just want to use Ctlr+c) -->
 
 ```
 docker rm -f $(docker ps -a -q)
