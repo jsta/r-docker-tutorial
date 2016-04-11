@@ -83,7 +83,7 @@ The number must match the image ID and `:firsttry` is the tag.
 <!--- TODO: Any suggestions on which tag to use? Are there good practices here? -->
 6. Push your image to the repository you created
 ```{}
-docker push heidiseibold/hadleyverse_gapminder
+docker push yourhubusername/hadleyverse_gapminder
 ```
 
 Your image is now available for everyone to use.
