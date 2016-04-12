@@ -10,11 +10,10 @@ Earlier, we got started with a base image that let us run RStudio from within Do
 Dockerfiles are a set of instructions on how to add things to a base image. They build custom images up in a series of *layers*. In a new file called `Dockerfile`, put the following:
 
 ```
-FROM rocker/ropensci:latest
+FROM rocker/hadleyverse:latest
 ```
 
-This tells Docker to start with the `rocker/ropensci` base image - that's what we've been using so far. 
-<!--- (TODO: Have we really been using this so far?) -->
+This tells Docker to start with the `rocker/hadleyverse` base image - that's what we've been using so far. 
 The `FROM` command must always always always be the first thing in your Dockerfile; this is the bottom crust of the pie we are baking.
 
 Next, let's add another layer on top of our base, in order to have `gapminder` pre-installed and ready to go:
