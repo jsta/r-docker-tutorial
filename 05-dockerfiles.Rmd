@@ -23,7 +23,7 @@ RUN wget https://cran.r-project.org/src/contrib/gapminder_0.2.0.tar.gz
 RUN R CMD INSTALL gapminder_0.2.0.tar.gz
 ```
 
-`RUN` commands in your Dockerfile execute shell commands. In this example, the first line downloads the gapminder source from CRAN, and the second line installs it (this is almost the same as `install.packages()` from within R, but it does not install the latest version but the version specified; here 0.1.0). Save that file, and return to your docker terminal; we can now build our image by doing:
+`RUN` commands in your Dockerfile execute shell commands. In this example, the first line downloads the gapminder source from CRAN, and the second line installs it (this is almost the same as `install.packages()` from within R, but it does not install the latest version but the version specified; here 0.2.0). Save that file, and return to your docker terminal; we can now build our image by doing:
 
 ```
 docker build -t my-r-image .
@@ -81,10 +81,10 @@ Go back to RStudio in the browser, and there `data.dat` will be, hanging out in 
 
 While building and rebuilding your Docker image in this tutorial, you may have noticed lines like this:
 ```
-Step 2 : RUN wget https://cran.r-project.org/src/contrib/gapminder_0.1.0.tar.gz
+Step 2 : RUN wget https://cran.r-project.org/src/contrib/gapminder_0.2.0.tar.gz
  ---> Using cache
  ---> fa9be67b52d1
-Step 3 : RUN R CMD INSTALL gapminder_0.1.0.tar.gz
+Step 3 : RUN R CMD INSTALL gapminder_0.2.0.tar.gz
  ---> Using cache
  ---> eeb8ef4dc0a8
 ```
