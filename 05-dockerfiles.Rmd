@@ -20,7 +20,7 @@ Next, let's add another layer on top of our base, in order to have `gapminder` p
 
 ```
 RUN wget https://cran.r-project.org/src/contrib/gapminder_0.2.0.tar.gz
-RUN R CMD INSTALL gapminder_0.1.0.tar.gz
+RUN R CMD INSTALL gapminder_0.2.0.tar.gz
 ```
 
 `RUN` commands in your Dockerfile execute shell commands. In this example, the first line downloads the gapminder source from CRAN, and the second line installs it (this is almost the same as `install.packages()` from within R, but it does not install the latest version but the version specified; here 0.1.0). Save that file, and return to your docker terminal; we can now build our image by doing:
