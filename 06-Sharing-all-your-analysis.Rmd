@@ -1,6 +1,17 @@
 ---
-title: "06-dockerfiles"
+title: "06-Share all your analysis"
 output: html_document
 ---
 
 ## Sorry this tutorial is still in development. This part will be completed soon.
+
+Now that we have leanrned how to work with a dockerfile, we can send all our analysis to a collaborator. 
+We will share an image that contains all the dependencies that we need to ran our analysis, the data and the analysis.
+
+We will build this image via a dockerfile. Let's start with the basic rocker image.
+
+```
+FROM rocker/hadleyverse:latest
+```
+
+As part of our analysis, we will use the 5 year gapminder data. Move this data set 
