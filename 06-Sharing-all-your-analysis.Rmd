@@ -14,4 +14,95 @@ We will build this image via a dockerfile. Let's start with the basic rocker ima
 FROM rocker/hadleyverse:latest
 ```
 
-As part of our analysis, we will use the 5 year gapminder data. Move this data set 
+As part of our analysis, we will use the gapminder data. We will need to install this package into our docker image.
+Let's modify our dockerfile to install this package. 
+
+```
+RUN R -e "install.packages('gapminder', repos = 'http://cran.us.r-project.org')"
+```
+
+Now we just need to write our analysis and add it to our dockerfile.
+
+For this analysis, we will create a plot of life expectancy vs. gdp per capita. 
+
+On a new R script let's write the following analysis. 
+
+```{r}
+library(ggplot2)
+library(gapminder)
+
+life_expentancy_plot <- ggplot(data = gapminder) + 
+	geom_point(aes(x = lifeExp, y = gdpPercap, colour = continent)) 
+
+```
+
+We will save this r script as analysis.R and add it to our dockerfile.
+
+```
+ADD analysis.R /home/rstudio/
+```
+
+Now we can build the image and check that we have everything we want to share with our collaborator. 
+
+```
+docker build -t my-analysis .
+```
+
+Our analysis will appear on the list of images. 
+
+```
+docker images
+```
+
+Launch your new image and check you have everything you want to include:
+
+```
+docker run -dp 8787:8787 my-analysis
+```
+
+Great! our analysis script is there and gapminder is installed. 
+
+Now we can push our analysis to dockerhub.
+
+On dockerhub click on *Create Repository*.
+Choose a name (e.g. gapminder_my_analysis) and a description for your repository and click *Create*.
+
+Log into the Docker Hub from the command line
+```{}
+docker login --username=yourhubusername --email=youremail@company.com
+```
+just with your own user name and email that you used for the account.
+Enter your password when prompted. 
+
+Check the image ID using
+
+```{}
+docker images
+```
+and what you will see will be similar to
+```{}
+REPOSITORY                         TAG                 IMAGE ID            CREATED             SIZE
+my-analysis                      latest              dc63d4790eaa        2 minutes ago       3.164 GB
+```
+
+and tag your image
+```{}
+docker tag dc63d4790eaa yourhubusername/gapminder_my_analysis:firsttry
+```
+
+Push your image to the repository you created
+```{}
+docker push yourhubusername/gapminder_my_analysis
+```
+
+Your image is now available for everyone to use.
+
+Now your collaborator can download your image. 
+
+Your collaborator should write on their command line:
+
+```
+docker pull yourhubusername/gapminder_my_analysis
+```
+
+They now have the image of your analysis.
