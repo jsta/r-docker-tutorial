@@ -114,7 +114,7 @@ should almost always start with `/home/`.
 
 
 ~~~
-docker run --rm -p 8787:8787 -v /Users/tiffanytimbers/Documents/DC/r-docker-tutorial:/home/hadleyverse/r-docker-tutorial rocker/hadleyverse
+docker run --rm -p 8787:8787 -v /Users/tiffanytimbers/Documents/DC/r-docker-tutorial:/home/rstudio/r-docker-tutorial rocker/hadleyverse
 ~~~
 
 Again, you will have to enter something like `http://192.168.99.100:8787` in your browser as the url to get RStudio to run. 
