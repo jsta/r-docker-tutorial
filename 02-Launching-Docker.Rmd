@@ -34,7 +34,14 @@ First things first: **install Docker**: on [Linux](https://docs.docker.com/linux
 
 ## Launching RStudio in Docker
 
-The first thing we need to do to launch Docker is to open a Unix Shell. If you're on Mac or Windows, in the last step you installed something called the *Docker Quickstart Terminal*; open that up now - it should look like just a plain shell prompt (`~$`), but really it's pointing at a linux virtual machine that Docker likes to run in, and this is where you should do everything for the rest of this tutorial unless otherwise noted. If you're on a linux machine, then you can just use a plain old terminal prompt.
+The first thing we need to do to launch Docker is to open a Unix Shell. If you're on Mac or Windows, in the last step you installed something called the *Docker Quickstart Terminal*; open that up now - it should look like just a plain shell prompt (`~$`), but really it's pointing at a linux virtual machine that Docker likes to run in, and this is where you should do everything for the rest of this tutorial unless otherwise noted. If you're on a linux machine, then you can just use a plain old terminal prompt. 
+
+On a Mac you can also go to your terminal of choice and configure it for Docker usage. Especially if you get the error *Cannot connect to the Docker daemon. Is the docker daemon running on this host?* at some point in the tutorial, running the following command might fix your problem:
+
+~~~
+eval "$(docker-machine env default)"
+~~~
+
 
 Next, we will ask Docker to run an image that already exists, we will use the hadleyverse Docker image from [Rocker](https://github.com/rocker-org/rocker/wiki) which will allow us to run RStudio inside the container and has many useful R packages already installed. 
 
