@@ -24,7 +24,7 @@ opts_knit$set(width = 75)
 
 ## Installing R Packages within RStudio
 
-You can install R packages with RStudio in the browser, like you would on a desktop-RStudio-session, by using `install.packages`. Let's launch a hadleyverse Docker container to run RStudio as we did previously, and try to install the gapminder package, and load it and peak at the data.
+You can install R packages with RStudio in the browser, like you would on a desktop-RStudio-session, by using `install.packages`. Let's launch a hadleyverse Docker container to run RStudio as we did previously, and try to install the gapminder package, and load it and peek at the data.
 
 ~~~
 # install package
