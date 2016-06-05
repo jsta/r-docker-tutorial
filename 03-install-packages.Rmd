@@ -33,7 +33,7 @@ install.packages('gapminder')
 # load library
 library(gapminder)
 
-# peak at data
+# peek at data
 head(gapminder)
 ~~~
 
