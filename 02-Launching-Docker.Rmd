@@ -148,7 +148,9 @@ In this lesson we learned how to launch a Docker container that allows us to run
 The container we used already had R, RStudio and several useful R packages installed. In later lessons we will learn how to modify this container to install new packages, and where we can find other Docker containers that might be useful for our work.
 
 ## Challenge Questions 
-TBD
+Open R or RStudio on your local machine and check which packages you have installed by 
+typing `installed.packages()`. Compare with your neighbour if they match. Do the same
+in RStudio in your browser. 
 
 
 Next: Go to [Lesson 03 Install packages](03-install-packages.html) or back to the 
