@@ -98,14 +98,14 @@ img {
 
 <div id="installing-r-packages-within-rstudio" class="section level2">
 <h2>Installing R Packages within RStudio</h2>
-<p>You can install R packages with RStudio in the browser, like you would on a desktop-RStudio-session, by using <code>install.packages</code>. Let’s launch a hadleyverse Docker container to run RStudio as we did previously, and try to install the gapminder package, and load it and peak at the data.</p>
+<p>You can install R packages with RStudio in the browser, like you would on a desktop-RStudio-session, by using <code>install.packages</code>. Let’s launch a hadleyverse Docker container to run RStudio as we did previously, and try to install the gapminder package, and load it and peek at the data.</p>
 <pre><code># install package
 install.packages('gapminder')
 
 # load library
 library(gapminder)
 
-# peak at data
+# peek at data
 head(gapminder)</code></pre>
 <p>Great! Now we have the Gapminder package installed so we can work with the whole dataset. But wait, what is going to happen when we exit the container? It will be deleted and since we didn’t save this version of the Docker image, when we open another instance of the container we will have to install the Gapminder package again if we want to use it.</p>
 <p>To avoid this, lets save the image by running <code>Docker commit</code> and then the next time we run a Docker container we can run an instance of this image which includes the Gapminder package. To do this we need to open another terminal window <strong>before</strong> we close our Docker container.</p>
@@ -132,8 +132,12 @@ apt-get install libgsl0-dev <span class="co"># install the package, in this case
 <p>To save these changes go to yet another terminal window and save as above using <code>docker commit</code>, e.g.</p>
 <pre><code>docker commit -m &quot;hadleyverse + gapminder + GSL&quot; &lt;container id&gt;  hadleyverse_gapminder_gsl</code></pre>
 <p>Now you can go to the terminal window in which you typed the <code>docker exec</code> command and close the docker container by typing <code>exit</code>.</p>
-<p>Next: Go to <a href="04-Dockerhub.html">Lesson 04 Dockerhub</a> or back to the <a href="http://ropenscilabs.github.io/r-docker-tutorial/">main page</a>.</p>
 </div>
+</div>
+<div id="challenge-questions" class="section level2">
+<h2>Challenge Questions</h2>
+<p>You or someone else will probably want to check at some point later, what the docker image contains. Write a README file which documents the details of the <code>hadleyverse_gapminder_gsl</code> image. For the R packages you can use the output of <code>installed.packages()</code>.</p>
+<p>Next: Go to <a href="04-Dockerhub.html">Lesson 04 Dockerhub</a> or back to the <a href="http://ropenscilabs.github.io/r-docker-tutorial/">main page</a>.</p>
 </div>
 
 

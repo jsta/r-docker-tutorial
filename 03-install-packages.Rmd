@@ -96,6 +96,12 @@ Now you can go to the terminal window in which you typed the `docker exec` comma
 by typing `exit`.
 
 
+## Challenge Questions 
+You or someone else will probably want to check at some point later, what the 
+docker image contains. Write a README file which documents the details of the 
+`hadleyverse_gapminder_gsl` image. For the R packages you can use the output of
+`installed.packages()`.
+
 
 Next: Go to [Lesson 04 Dockerhub](04-Dockerhub.html) or back to the 
 [main page](http://ropenscilabs.github.io/r-docker-tutorial/).
