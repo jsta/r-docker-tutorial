@@ -2,8 +2,8 @@
 title: "Launching RStudio in Docker"
 output:
   html_document:
-    css: stylesheets/styles.css
-    template: stylesheets/default.html
+    css: template/styles.css
+    template: template/default.html
     highlight: pygments
     fig_width: 6
     fig_height: 6
