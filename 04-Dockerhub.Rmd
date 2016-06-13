@@ -89,6 +89,16 @@ docker push yourhubusername/hadleyverse_gapminder
 Your image is now available for everyone to use.
 
 
+## Challenge Questions 
+
+- Download your partner's image. How did that compare speed-wise to downloading 
+the hadleyverse image the first time? 
+- Browse Docker Hub for interesting images. What could be useful to you?
+- Discuss the pros and cons of using Docker images from someone you don't
+know with your neighbour.
+
+
+
 Next: Go to [Lesson 05 Dockerfiles](05-dockerfiles.html) or back to the 
 [main page](http://ropenscilabs.github.io/r-docker-tutorial/).
 

@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
 
 
 
@@ -38,25 +38,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 
 
 
-
-</head>
-
-<body>
-
 <style type="text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
 h1 {
   font-size: 34px;
 }
@@ -77,6 +59,30 @@ h5 {
 }
 h6 {
   font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type="text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -107,7 +113,8 @@ $(document).ready(function () {
 <div class="fluid-row" id="header">
 
 
-<h1 class="title">Dockerfiles</h1>
+
+<h1 class="title toc-ignore">Dockerfiles</h1>
 
 </div>
 
@@ -150,9 +157,18 @@ Step 3 : RUN R CMD INSTALL gapminder_0.2.0.tar.gz
  ---&gt; Using cache
  ---&gt; eeb8ef4dc0a8</code></pre>
 <p>Noting that a cached version of the commands was being used. When you rebuild an image, Docker checks the previous version(s) of that image to see if the same commands were executed previously; each of those steps is preserved as a separate layer, and Docker is smart enough to re-use those layers if they are unchanged and <em>in the same order</em> as previously. Therefore, once you’ve got part of your setup process figured out (particularly if it’s a slow part), leave it near the top of your Dockerfile and don’t put anything above or between those lines, particularly things that change frequently; this can substantially speed up your build process.</p>
+</div>
+</div>
+<div id="challenge-questions" class="section level2">
+<h2>Challenge Questions</h2>
+<p>Find the Dockerfile of the <code>rocker/hadleyverse</code> image through Docker Hub.</p>
+<ul>
+<li>How does having a Dockerfile compare to a README file (like the one we prepared in lesson 3)?</li>
+<li>Docker Hub can automatically build images when you store the file on Github or Bitbucket. What do you think are the benefits of doing this instead of commiting the image directly? Could it be negative?</li>
+<li>Find the build details of the <code>rocker/hadleyverse</code> image. What do they tell us?</li>
+</ul>
 <p>Go to <a href="06-Sharing-all-your-analysis.html">Lesson 06 Share all your analysis</a> or back to the<br />
 <a href="http://ropenscilabs.github.io/r-docker-tutorial/">main page</a>.</p>
-</div>
 </div>
 
 

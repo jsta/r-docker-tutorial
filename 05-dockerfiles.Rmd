@@ -90,5 +90,17 @@ Step 3 : RUN R CMD INSTALL gapminder_0.2.0.tar.gz
 ```
 Noting that a cached version of the commands was being used. When you rebuild an image, Docker checks the previous version(s) of that image to see if the same commands were executed previously; each of those steps is preserved as a separate layer, and Docker is smart enough to re-use those layers if they are unchanged and *in the same order* as previously. Therefore, once you've got part of your setup process figured out (particularly if it's a slow part), leave it near the top of your Dockerfile and don't put anything above or between those lines, particularly things that change frequently; this can substantially speed up your build process. 
 
+
+## Challenge Questions 
+Find the Dockerfile of the `rocker/hadleyverse` image through Docker Hub. 
+
+- How does having a Dockerfile compare to a README file (like the one we 
+prepared in lesson 3)?
+- Docker Hub can automatically build images when you store the file on Github
+or Bitbucket. What do you think are the benefits of doing this instead of 
+commiting the image directly? Could it be negative?
+- Find the build details of the `rocker/hadleyverse` image. What do they tell us?
+
+
 Go to [Lesson 06 Share all your analysis](06-Sharing-all-your-analysis.html) or back to the  
 [main page](http://ropenscilabs.github.io/r-docker-tutorial/).
