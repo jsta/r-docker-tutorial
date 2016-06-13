@@ -89,6 +89,29 @@ docker push yourhubusername/hadleyverse_gapminder
 Your image is now available for everyone to use.
 
 
+## Saving and loading images
+
+Pushing to Docker Hub is great, but it does have some disadvantages:
+
+1. Bandwidth - many ISPs have much lower upload bandwidth than download bandwidth. 
+2. Unless you're paying extra for the private repositories, pushing equals publishing.
+3. When working on some clusters, each time you launch a job that uses a Docker container it pulls the container from Docker Hub, and if you are running many jobs, this can be really slow.
+
+Solutions to these problems can be to save the Docker container locally as a a tar archive, and then you can easily load that
+to an image when needed. 
+
+To save a Docker image after you have pulled, committed or built it you use the `docker save` command. For example, lets save a local copy of the `hadleyverse_gapminder` docker image we made:
+
+~~~
+docker save hadleyverse_gapminder > hadleyverse_gapminder.tar
+~~~
+
+If we want to load that Docker container from the archived tar file in the future, we can use the docker load command:
+
+~~~
+docker load --input hadleyverse_gapminder.tar
+~~~
+
 ## Challenge Questions 
 
 - Download your partner's image. How did that compare speed-wise to downloading 
@@ -96,7 +119,6 @@ the hadleyverse image the first time?
 - Browse Docker Hub for interesting images. What could be useful to you?
 - Discuss the pros and cons of using Docker images from someone you don't
 know with your neighbour.
-
 
 
 Next: Go to [Lesson 05 Dockerfiles](05-dockerfiles.html) or back to the 
