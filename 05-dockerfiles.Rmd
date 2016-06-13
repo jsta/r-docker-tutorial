@@ -1,11 +1,13 @@
 ---
 title: "Dockerfiles"
-output: html_document
+output:
+  dcTemplate::dc_lesson_template:
+    fig_width: 6
+    fig_height: 6
+    highlight: pygments
 ---
 
-## Sorry this tutorial is still in development. This part will be completed soon.
-
-Earlier, we got started with a base image that let us run RStudio from within Docker. Next, we'd like to add more things to our container, like R packages and data that will be pre-installed and ready to go as soon as we start up. To do so, we need to learn about Dockerfiles.
+Earlier, we got started with a base image that let us run RStudio from within Docker, and learned to modify the contents of that image using `docker commit`. This is an excellent technique for capturing what we've done so we can reproduce it later, but what if we want to be able to easily change the collection of things in our image, and have a clear record of just what went into it? This is useful when maintaining running environments that may change and evolve over a project, and is facilitated by Dockerfiles. 
 
 Dockerfiles are a set of instructions on how to add things to a base image. They build custom images up in a series of *layers*. In a new file called `Dockerfile`, put the following:
 
@@ -14,16 +16,15 @@ FROM rocker/hadleyverse:latest
 ```
 
 This tells Docker to start with the `rocker/hadleyverse` base image - that's what we've been using so far. 
-The `FROM` command must always always always be the first thing in your Dockerfile; this is the bottom crust of the pie we are baking.
+The `FROM` command must always be the first thing in your Dockerfile; this is the bottom crust of the pie we are baking.
 
 Next, let's add another layer on top of our base, in order to have `gapminder` pre-installed and ready to go:
 
 ```
-RUN wget https://cran.r-project.org/src/contrib/gapminder_0.2.0.tar.gz
-RUN R CMD INSTALL gapminder_0.2.0.tar.gz
+RUN R -e "install.packages('gapminder', repos = 'http://cran.us.r-project.org')"
 ```
 
-`RUN` commands in your Dockerfile execute shell commands. In this example, the first line downloads the gapminder source from CRAN, and the second line installs it (this is almost the same as `install.packages()` from within R, but it does not install the latest version but the version specified; here 0.2.0). Save that file, and return to your docker terminal; we can now build our image by doing:
+`RUN` commands in your Dockerfile execute shell commands to build up your image, like putting the filling in our pie. In this example, we install `gapminder` from the command line using `install.packages`, which does the same thing as if we had done `install.packages('gapminder')` from within RStudio. Save your Dockerfile, and return to your docker terminal; we can now build our image by doing:
 
 ```
 docker build -t my-r-image .
@@ -38,7 +39,7 @@ docker images
 and you should see `my-r-image` in the list. Launch your new image similarly to how we launched the base image:
 
 ```
-docker run -dp 8787:8787 my-r-image
+docker run --rm -p 8787:8787 my-r-image
 ```
 
 Then in the RStudio terminal, try gapminder again:
@@ -48,19 +49,12 @@ library('gapminder')
 gapminder
 ```
 
-And there it is - gapminder is pre-installed and ready to go in your new docker image. As noted in the previous section, we can shut down and remove all our running containers in one command:
-<!--- (TODO: Have we really talked about this before? Do we just want to use Ctlr+c) -->
+And there it is - gapminder is pre-installed and ready to go in your new docker image. 
+
+Our pie is almost complete! All we need to finish it is the topping. In addition to R packages like gapminder, we may also want some some static files inside our Docker image - such as data. We can do this using the `ADD` command in your Dockerfile:
 
 ```
-docker rm -f $(docker ps -a -q)
-```
-
-In addition to R packages like gapminder, we may also want some some static files inside our Docker image - such as data. We can do this using the `ADD` command in your Dockerfile. 
-
-Make a new file called `data.dat`, and put whatever you like in it; then, add the following lines to the bottom of your Dockerfile:
-
-```
-ADD data.dat /home/rstudio/
+ADD data/gapminder-FiveYearData.csv /home/rstudio/
 ```
 
 Rebuild your Docker image:
@@ -72,35 +66,41 @@ docker build -t my-r-image .
 And launch it again:
 
 ```
-docker run -dp 8787:8787 my-r-image
+docker run --rm -p 8787:8787 my-r-image
 ```
 
-Go back to RStudio in the browser, and there `data.dat` will be, hanging out in the files visible to RStudio. In this way, we can capture files as part of our Docker image, so they're always available along with the rest of our image in the exact same state.
+Go back to RStudio in the browser, and there `gapminder-FiveYearData.csv` will be, present in the files visible to RStudio. In this way, we can capture files as part of our Docker image, so they're always available along with the rest of our image in the exact same state.
 
 #### Protip: Cached Layers
 
 While building and rebuilding your Docker image in this tutorial, you may have noticed lines like this:
 ```
-Step 2 : RUN wget https://cran.r-project.org/src/contrib/gapminder_0.2.0.tar.gz
+Step 2 : RUN R -e "install.packages('gapminder', repos = 'http://cran.us.r-project.org')"
  ---> Using cache
  ---> fa9be67b52d1
-Step 3 : RUN R CMD INSTALL gapminder_0.2.0.tar.gz
- ---> Using cache
- ---> eeb8ef4dc0a8
 ```
 Noting that a cached version of the commands was being used. When you rebuild an image, Docker checks the previous version(s) of that image to see if the same commands were executed previously; each of those steps is preserved as a separate layer, and Docker is smart enough to re-use those layers if they are unchanged and *in the same order* as previously. Therefore, once you've got part of your setup process figured out (particularly if it's a slow part), leave it near the top of your Dockerfile and don't put anything above or between those lines, particularly things that change frequently; this can substantially speed up your build process. 
 
+## Summary
+
+In this lesson, we learned how to compose a Dockerfile so that we can re-create our images at will. We learned three main commands:
+
+ - `FROM` is always at the top of a Dockerfile, and specifies the image we want to start from.
+ - `RUN` runs shell commands on top of our base image, and is used for doing things like downloads and installations.
+ - `ADD` adds files from our computer to our new Docker image.
+
+The image is built by running `docker build -t my-r-image .` in the same directory as our Dockerfile and any files we want to include with an `ADD` command.
 
 ## Challenge Questions 
+ - Write a Dockerfile that makes an image like the one you made at the end of Section 3: built on `rocker/hadleyverse`, with `gapminder` and `gsl` installed. Also add a readme to your image describing what it contains.
+
 Find the Dockerfile of the `rocker/hadleyverse` image through Docker Hub. 
 
-- How does having a Dockerfile compare to a README file (like the one we 
-prepared in lesson 3)?
-- Docker Hub can automatically build images when you store the file on Github
-or Bitbucket. What do you think are the benefits of doing this instead of 
-commiting the image directly? Could it be negative?
-- Find the build details of the `rocker/hadleyverse` image. What do they tell us?
-
+ - How does having a Dockerfile compare to a README file (like the one we prepared in lesson 3)?
+ - Docker Hub can automatically build images when you store the file on Github
+ or Bitbucket. What do you think are the benefits of doing this instead of 
+ commiting the image directly? Could it be negative?
+ - Find the build details of the `rocker/hadleyverse` image. What do they tell us?
 
 Go to [Lesson 06 Share all your analysis](06-Sharing-all-your-analysis.html) or back to the  
 [main page](http://ropenscilabs.github.io/r-docker-tutorial/).
