@@ -1,324 +1,223 @@
-@font-face {
-  font-family: 'Noto Sans';
-  font-weight: 400;
-  font-style: normal;
-  src: url('../fonts/Noto-Sans-regular/Noto-Sans-regular.eot');
-  src: url('../fonts/Noto-Sans-regular/Noto-Sans-regular.eot?#iefix') format('embedded-opentype'),
-       local('Noto Sans'),
-       local('Noto-Sans-regular'),
-       url('../fonts/Noto-Sans-regular/Noto-Sans-regular.woff2') format('woff2'),
-       url('../fonts/Noto-Sans-regular/Noto-Sans-regular.woff') format('woff'),
-       url('../fonts/Noto-Sans-regular/Noto-Sans-regular.ttf') format('truetype'),
-       url('../fonts/Noto-Sans-regular/Noto-Sans-regular.svg#NotoSans') format('svg');
-}
+/* html_docco CSS */
+/* This .css file was downloaded on June 13th, 2016 from https://github.com/karthik/dcTemplate/tree/master/inst/rmarkdown/templates/dc_lesson_template/resources developed by Karthik Ram and is under the GPL-3 license*/
 
-@font-face {
-  font-family: 'Noto Sans';
-  font-weight: 700;
-  font-style: normal;
-  src: url('../fonts/Noto-Sans-700/Noto-Sans-700.eot');
-  src: url('../fonts/Noto-Sans-700/Noto-Sans-700.eot?#iefix') format('embedded-opentype'),
-       local('Noto Sans Bold'),
-       local('Noto-Sans-700'),
-       url('../fonts/Noto-Sans-700/Noto-Sans-700.woff2') format('woff2'),
-       url('../fonts/Noto-Sans-700/Noto-Sans-700.woff') format('woff'),
-       url('../fonts/Noto-Sans-700/Noto-Sans-700.ttf') format('truetype'),
-       url('../fonts/Noto-Sans-700/Noto-Sans-700.svg#NotoSans') format('svg');
-}
+/* Inspired form the Docco project stylesheet : https://jashkenas.github.io/docco/ */
 
-@font-face {
-  font-family: 'Noto Sans';
-  font-weight: 400;
-  font-style: italic;
-  src: url('../fonts/Noto-Sans-italic/Noto-Sans-italic.eot');
-  src: url('../fonts/Noto-Sans-italic/Noto-Sans-italic.eot?#iefix') format('embedded-opentype'),
-       local('Noto Sans Italic'),
-       local('Noto-Sans-italic'),
-       url('../fonts/Noto-Sans-italic/Noto-Sans-italic.woff2') format('woff2'),
-       url('../fonts/Noto-Sans-italic/Noto-Sans-italic.woff') format('woff'),
-       url('../fonts/Noto-Sans-italic/Noto-Sans-italic.ttf') format('truetype'),
-       url('../fonts/Noto-Sans-italic/Noto-Sans-italic.svg#NotoSans') format('svg');
-}
+/* Fonts */
 
-@font-face {
-  font-family: 'Noto Sans';
-  font-weight: 700;
-  font-style: italic;
-  src: url('../fonts/Noto-Sans-700italic/Noto-Sans-700italic.eot');
-  src: url('../fonts/Noto-Sans-700italic/Noto-Sans-700italic.eot?#iefix') format('embedded-opentype'),
-       local('Noto Sans Bold Italic'),
-       local('Noto-Sans-700italic'),
-       url('../fonts/Noto-Sans-700italic/Noto-Sans-700italic.woff2') format('woff2'),
-       url('../fonts/Noto-Sans-700italic/Noto-Sans-700italic.woff') format('woff'),
-       url('../fonts/Noto-Sans-700italic/Noto-Sans-700italic.ttf') format('truetype'),
-       url('../fonts/Noto-Sans-700italic/Noto-Sans-700italic.svg#NotoSans') format('svg');
-}
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
+@import url(http://fonts.googleapis.com/css?family=Inconsolata);
 
 body {
-  background-color: #fff;
-  padding:50px;
-  font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color:#727272;
-  font-weight:400;
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    background: #f0f0f0;
+    margin: 0;
 }
+
+/* Titles */
 
 h1, h2, h3, h4, h5, h6 {
-  color:#222;
-  margin:0 0 20px;
+  color: #112233;
+  font-weight: 400;
+  font-family: 'PT Sans', sans-serif;
+  line-height: 1em;
+  margin-top: 50px;
+  font-size: 2.4em;
 }
+h1.title {
+    font-weight: 700;
+    margin: 0 0 50px 0;
+    text-align: center;
+    font-size: 2.2em;
 
-p, ul, ol, table, pre, dl {
-  margin:0 0 20px;
 }
-
-h1, h2, h3 {
-  line-height:1.1;
-}
-
-h1 {
-  font-size:28px;
-}
-
 h2 {
-  color:#393939;
-}
-
-h3, h4, h5, h6 {
-  color:#494949;
+    font-size: 1.3em;
 }
 
 a {
-  color:#39c;
-  text-decoration:none;
-}
-
-a:hover {
-  color:#069;
-}
-
-a small {
-  font-size:11px;
-  color:#777;
-  margin-top:-0.3em;
-  display:block;
-}
-
-a:hover small {
-  color:#777;
-}
-
-.wrapper {
-  width:860px;
-  margin:0 auto;
+  text-decoration:underline;
 }
 
 blockquote {
-  border-left:1px solid #e5e5e5;
-  margin:0;
-  padding:0 0 0 20px;
-  font-style:italic;
+  border-left: 5px solid #ccc;
+  margin-left: 0;
+  padding: 1px 0 1px 1em;
+}
+.page blockquote p {
+  /*  font-family: Menlo, Consolas, Monaco, monospace;*/
+    font-family: 'Inconsolata', ;
+    font-size: 16px; line-height: 19px;
+    color: #999;
+    margin: 10px 0 0;
+    white-space: pre-wrap;
 }
 
-code, pre {
-  font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
-  color:#333;
-  font-size:12px;
+/* Code */
+
+pre, tt, code {
+    /*font-family: Menlo, Consolas, Monaco, monospace;*/
+    font-family: 'Inconsolata', ;
+    font-size: 16px;
+    display: inline-block;
+    border: 1px solid #EAEAEA;
+    background: #f8f8f8;
+    color: #555;
+    padding: 0 5px;
+    line-height: 20px;
+}
+.page pre {
+    margin: 0;
+    width: 96%;
+    padding: 1.5% 2%;
+    background: #fcfcfc;
+    -moz-box-shadow:    inset 0 0 10px rgba(0,0,0,0.1);
+    -webkit-box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+    box-shadow:         inset 0 0 10px rgba(0,0,0,0.1);
+    overflow-x: auto;
+}
+.page pre code {
+    border: 0;
+    padding: 0;
+    background: transparent;
 }
 
-pre {
-  padding:8px 15px;
-  background: #f8f8f8;
-  border-radius:5px;
-  border:1px solid #e5e5e5;
-  overflow-x: auto;
+
+/* Layout */
+
+.main-container {
+  margin: 0 auto;
+  background: #f0f0f0;
+  overflow: hidden;
+}
+.page {
+    padding: 15px;
+    margin: 15px;
+    background: #fff;
+    font-size: 17px;
+    line-height: 26px;
+    -moz-box-shadow:    0 0 10px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow:         0 0 10px rgba(0,0,0,0.1);
+}
+.page p {
+    color: #30404f;
+    margin: 26px 0;
 }
 
-table {
-  width:100%;
-  border-collapse:collapse;
-}
 
-th, td {
-  text-align:left;
-  padding:5px 10px;
-  border-bottom:1px solid #e5e5e5;
-}
-
-dt {
-  color:#444;
-  font-weight:700;
-}
-
-th {
-  color:#444;
-}
+/* Images */
 
 img {
-  max-width:100%;
+    margin: 5px auto 50px auto;
 }
 
-header {
-  width:270px;
-  float:left;
-  position:fixed;
-  -webkit-font-smoothing:subpixel-antialiased;
+img.image-thumb {
+    width: 250px;
+    cursor: pointer;
+    border: 1px solid #CCC;
+    padding: 2px;
 }
 
-header ul {
-  list-style:none;
-  height:40px;
-  padding:0;
-  background: #f4f4f4;
-  border-radius:5px;
-  border:1px solid #e0e0e0;
-  width:270px;
+.figure {
+    margin: 5px auto 30px auto;
+    display: block;
 }
 
-header li {
-  width:89px;
-  float:left;
-  border-right:1px solid #e0e0e0;
-  height:40px;
+.figure img {
+    margin-bottom: 5px;
 }
 
-header li:first-child a {
-  border-radius:5px 0 0 5px;
+.page .figure p.caption {
+    text-align: center;
+    font-style: italic;
+    font-size: 80%;
+    margin: 10px 0px;
 }
 
-header li:last-child a {
-  border-radius:0 5px 5px 0;
+img.mfp-img {
+  background-color: #FFFFFF;
+  padding: 0px;
+  margin: 40px 0px;
 }
 
-header ul a {
-  line-height:1;
-  font-size:11px;
-  color:#999;
-  display:block;
-  text-align:center;
-  padding-top:6px;
-  height:34px;
+
+/* Tables */
+
+.table { 
+    margin: 25px auto 35px auto;
+    width: auto !important;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #CCC;
+    /* box-shadow: 0 0 0.5em #ddd;  */
+    font-size: 80%;
 }
 
-header ul a:hover {
-  color:#999;
+
+.table thead>tr {
+    background: #f0f0f0;
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;       
 }
 
-header ul a:active {
-  background-color:#f0f0f0;
+.table thead>tr>th { 
+    font-weight: normal;
+    padding: 3px 15px !important;
 }
 
-strong {
-  color:#222;
-  font-weight:700;
+.table tbody>tr>td { 
+    padding: 3px 15px !important;
 }
 
-header ul li + li + li {
-  border-right:none;
-  width:89px;
+.table tbody tr.even {
+    background: #f7f7f7;  
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;        
 }
 
-header ul a strong {
-  font-size:14px;
-  display:block;
-  color:#222;
+.table tr.odd {
+    background: #FFF;
 }
 
-section {
-  width:500px;
-  float:right;
-  padding-bottom:50px;
+.table tbody tr:hover {
+    background: #f5f5f5;
+    transition: all 0.1s ease-in-out;     
 }
 
-small {
-  font-size:11px;
+
+.tab-content .table {
+    margin-top: 0px;
 }
 
-hr {
-  border:0;
-  background:#e5e5e5;
-  height:1px;
-  margin:0 0 20px;
+/* Nav pills */
+
+.nav-pills {
+    margin: 20px auto 10px auto;
+    font-size: 70%;
+    display: table;
 }
 
-footer {
-  width:270px;
-  float:left;
-  position:fixed;
-  bottom:50px;
-  -webkit-font-smoothing:subpixel-antialiased;
+.nav-pills li a {
+    padding: 3px 12px !important;
+    margin: 0px 3px !important;
 }
 
-@media print, screen and (max-width: 960px) {
-
-  div.wrapper {
-    width:auto;
-    margin:0;
-  }
-
-  header, section, footer {
-    float:none;
-    position:static;
-    width:auto;
-  }
-
-  header {
-    padding-right:320px;
-  }
-
-  section {
-    border:1px solid #e5e5e5;
-    border-width:1px 0;
-    padding:20px 0;
-    margin:0 0 20px;
-  }
-
-  header a small {
-    display:inline;
-  }
-
-  header ul {
-    position:absolute;
-    right:50px;
-    top:52px;
-  }
+.nav-pills li.active a,
+.nav-pills li.active a:hover,
+.nav-pills li.active a:focus
+{
+    background-color: #888;
 }
 
-@media print, screen and (max-width: 720px) {
-  body {
-    word-wrap:break-word;
-  }
-
-  header {
-    padding:0;
-  }
-
-  header ul, header p.view {
-    position:static;
-  }
-
-  pre, code {
-    word-wrap:normal;
-  }
+.nav-pills li.active a:hover {
+    color: #FFF;
 }
 
-@media print, screen and (max-width: 480px) {
-  body {
-    padding:15px;
-  }
 
-  header ul {
-    width:99%;
-  }
+/* Chi-squared results */
 
-  header li, header ul li + li + li {
-    width:33%;
-  }
-}
-
-@media print {
-  body {
-    padding:0.4in;
-    font-size:12pt;
-    color:#444;
-  }
+.page p.chisq-results {
+    margin: -20px auto 35px auto;
+    font-size: 70%;
+    font-style: italic;
+    display: table;
 }

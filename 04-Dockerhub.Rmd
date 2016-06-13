@@ -1,10 +1,12 @@
 ---
 title: "Pushing and Pulling to and from Docker Hub"
 output:
-  dcTemplate::dc_lesson_template:
+  html_document:
+    css: stylesheets/styles.css
+    template: stylesheets/default.html
+    highlight: pygments
     fig_width: 6
     fig_height: 6
-    highlight: pygments
 ---
 
 
