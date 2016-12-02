@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
 
 
 
@@ -38,25 +38,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 
 
 
-
-</head>
-
-<body>
-
 <style type="text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
 h1 {
   font-size: 34px;
 }
@@ -77,6 +59,30 @@ h5 {
 }
 h6 {
   font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type="text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -107,7 +113,8 @@ $(document).ready(function () {
 <div class="fluid-row" id="header">
 
 
-<h1 class="title">06-Share all your analysis</h1>
+
+<h1 class="title toc-ignore">06-Share all your analysis</h1>
 
 </div>
 
@@ -122,9 +129,8 @@ $(document).ready(function () {
 <p>Now we just need to write our analysis and add it to our dockerfile.</p>
 <p>For this analysis, we will create a plot of life expectancy vs. gdp per capita.</p>
 <p>On a new R script let’s write the following analysis.</p>
-<pre class="r"><code>library(ggplot2)</code></pre>
-<pre><code>## Warning: package 'ggplot2' was built under R version 3.3.0</code></pre>
-<pre class="r"><code>library(gapminder)
+<pre class="r"><code>library(ggplot2)
+library(gapminder)
 
 life_expentancy_plot &lt;- ggplot(data = gapminder) + 
     geom_point(aes(x = lifeExp, y = gdpPercap, colour = continent)) </code></pre>
@@ -154,7 +160,7 @@ my-analysis                      latest              dc63d4790eaa        2 minut
 <p>Your image is now available for everyone to use.</p>
 <p>Now your collaborator can download your image.</p>
 <p>Your collaborator should write on their command line:</p>
-<pre><code>docker pull yourhubusername/gapminder_my_analysis</code></pre>
+<pre><code>docker pull yourhubusername/gapminder_my_analysis:firsttry</code></pre>
 <p>They now have the image of your analysis.</p>
 <p>Click to go back to the <a href="http://ropenscilabs.github.io/r-docker-tutorial/">main page</a>.</p>
 </div>

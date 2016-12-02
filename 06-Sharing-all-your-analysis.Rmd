@@ -102,7 +102,7 @@ Now your collaborator can download your image.
 Your collaborator should write on their command line:
 
 ```
-docker pull yourhubusername/gapminder_my_analysis
+docker pull yourhubusername/gapminder_my_analysis:firsttry
 ```
 
 They now have the image of your analysis.
