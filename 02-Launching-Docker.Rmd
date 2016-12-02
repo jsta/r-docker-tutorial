@@ -30,7 +30,7 @@ opts_knit$set(width = 75)
 
 ## Installation
 
-First things first: **install Docker**: on [Linux](https://docs.docker.com/linux/step_one/), [Mac](https://docs.docker.com/mac/step_one/), or [Windows](https://docs.docker.com/windows/step_one/). These install guides link to a bunch of introductory material after installation is complete; it's not necessary to complete those tutorials for this lesson, but they are an excellent introduction to basic Docker usage.
+First things first: [install Docker](https://docs.docker.com/engine/getstarted/step_one/). The install guide links to a bunch of introductory material after installation is complete; it's not necessary to complete those tutorials for this lesson, but they are an excellent introduction to basic Docker usage.
 
 ## Launching RStudio in Docker
 
