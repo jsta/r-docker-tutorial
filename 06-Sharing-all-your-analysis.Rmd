@@ -3,15 +3,16 @@ title: "06-Share all your analysis"
 output: html_document
 ---
 
-## Sorry this tutorial is still in development. This part will be completed soon.
-
 Now that we have leanrned how to work with a dockerfile, we can send all our analysis to a collaborator. 
 We will share an image that contains all the dependencies that we need to ran our analysis, the data and the analysis.
 
-We will build this image via a dockerfile. Let's start with the basic rocker image.
+We will build this image via a dockerfile. Let's start with the basic verse rocker image we used before. 
+This time we want to have a specific R version (3.3.2), which the developers make possible by tagging the images with the version.
+See all available tags for the `rocker/verse` image [here](https://hub.docker.com/r/rocker/verse/tags/). The version tag is very
+useful when you want your analysis to be reproducible.
 
 ```
-FROM rocker/hadleyverse:latest
+FROM rocker/verse:3.3.2
 ```
 
 As part of our analysis, we will use the gapminder data. We will need to install this package into our docker image.

@@ -119,11 +119,9 @@ $(document).ready(function () {
 </div>
 
 
-<div id="sorry-this-tutorial-is-still-in-development.-this-part-will-be-completed-soon." class="section level2">
-<h2>Sorry this tutorial is still in development. This part will be completed soon.</h2>
 <p>Now that we have leanrned how to work with a dockerfile, we can send all our analysis to a collaborator. We will share an image that contains all the dependencies that we need to ran our analysis, the data and the analysis.</p>
-<p>We will build this image via a dockerfile. Let’s start with the basic rocker image.</p>
-<pre><code>FROM rocker/hadleyverse:latest</code></pre>
+<p>We will build this image via a dockerfile. Let’s start with the basic verse rocker image we used before. This time we want to have a specific R version (3.3.2), which the developers make possible by tagging the images with the version. See all available tags for the <code>rocker/verse</code> image <a href="https://hub.docker.com/r/rocker/verse/tags/">here</a>. The version tag is very useful when you want your analysis to be reproducible.</p>
+<pre><code>FROM rocker/verse:3.3.2</code></pre>
 <p>As part of our analysis, we will use the gapminder data. We will need to install this package into our docker image. Let’s modify our dockerfile to install this package.</p>
 <pre><code>RUN R -e &quot;install.packages('gapminder', repos = 'http://cran.us.r-project.org')&quot;</code></pre>
 <p>Now we just need to write our analysis and add it to our dockerfile.</p>
@@ -163,7 +161,6 @@ my-analysis                      latest              dc63d4790eaa        2 minut
 <pre><code>docker pull yourhubusername/gapminder_my_analysis:firsttry</code></pre>
 <p>They now have the image of your analysis.</p>
 <p>Click to go back to the <a href="http://ropenscilabs.github.io/r-docker-tutorial/">main page</a>.</p>
-</div>
 
 
 
