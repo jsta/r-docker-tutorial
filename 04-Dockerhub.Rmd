@@ -79,8 +79,8 @@ and tag your image
 ```{}
 docker tag 6a131c8f7c2b yourhubusername/hadleyverse_gapminder:firsttry
 ```
-The number must match the image ID and `:firsttry` is the tag.
-<!--- TODO: Any suggestions on which tag to use? Are there good practices here? -->
+The number must match the image ID and `:firsttry` is the tag. In general, a good choice for a tag is something that will help you understand what this container should be used in conjunction with, or what it represents. If this container contains the analysis for a paper, consider using that paper's DOI or journal-issued serial number; if it's meant for use with a particular version of a code or data version control repo, that's a good choice too - whatever will help you understand what this particular image is intended for.
+
 6. Push your image to the repository you created
 ```{}
 docker push yourhubusername/hadleyverse_gapminder
