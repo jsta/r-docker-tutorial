@@ -1,6 +1,10 @@
 ---
 title: "06-Share all your analysis"
-output: html_document
+output:
+  dcTemplate::dc_lesson_template:
+    fig_width: 6
+    fig_height: 6
+    highlight: pygments
 ---
 
 Now that we have leanrned how to work with a dockerfile, we can send all our analysis to a collaborator. 
