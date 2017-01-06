@@ -43,10 +43,10 @@ eval "$(docker-machine env default)"
 ~~~
 
 
-Next, we will ask Docker to run an image that already exists, we will use the hadleyverse Docker image from [Rocker](https://github.com/rocker-org/rocker/wiki) which will allow us to run RStudio inside the container and has many useful R packages already installed. 
+Next, we will ask Docker to run an image that already exists, we will use the *verse* Docker image from [Rocker](https://github.com/rocker-org/rocker/wiki) which will allow us to run RStudio inside the container and has many useful R packages already installed. 
 
 ~~~
-docker run --rm -p 8787:8787 rocker/hadleyverse
+docker run --rm -p 8787:8787 rocker/verse
 ~~~
 
 Optional:
@@ -107,7 +107,7 @@ If you look at your files again now, you will see the script file.
 Now, given that we used the `--rm` flag when we launched the Docker container, anything we create on the machine will be gone. Let's verify this. First, close the browser tab where you have RStudio open, and then go to your terminal window from where you launched the Docker container and type Contol+C. This shuts down the 
 Docker container.
 
-Now relaunch your a Docker container using the RStudio image as you did previously, e.g., `docker run --rm -p 8787:8787 rocker/hadleyverse` in the terminal and typing `http://192.168.99.100:8787` in your browser window and see if the rscript and plot you saved is still there.
+Now relaunch your a Docker container using the RStudio image as you did previously, e.g., `docker run --rm -p 8787:8787 rocker/verse` in the terminal and typing `http://192.168.99.100:8787` in your browser window and see if the rscript and plot you saved is still there.
 
 
 ## Linking a volume to a Docker container to access data and save files
@@ -119,7 +119,7 @@ on your own computer, which you can get by doing `pwd` at the bash prompt from y
 
 
 ~~~
-docker run --rm -p 8787:8787 -v /Users/tiffanytimbers/Documents/DC/r-docker-tutorial:/home/rstudio/r-docker-tutorial rocker/hadleyverse
+docker run --rm -p 8787:8787 -v /Users/tiffanytimbers/Documents/DC/r-docker-tutorial:/home/rstudio/r-docker-tutorial rocker/verse
 ~~~
 
 Again, you will have to enter something like `http://192.168.99.100:8787` in your browser as the url to get RStudio to run. 

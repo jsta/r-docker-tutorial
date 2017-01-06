@@ -33,14 +33,14 @@ opts_knit$set(width = 75)
 [Docker Hub](https://hub.docker.com/) is the place where open Docker images are stored. 
 When we ran our first image by typing
 ```{}
-docker run --rm -p 8787:8787 rocker/hadleyverse
+docker run --rm -p 8787:8787 rocker/verse
 
 ```
 the software first checked if this image is available on your computer and since it wasn't it 
 downloaded the image from Docker Hub. So getting an image from Docker Hub works sort of automatically.
 If you just want to pull the image but not run it, you can also do
 ```{}
-docker pull rocker/hadleyverse
+docker pull rocker/verse
 
 ```
 
@@ -53,7 +53,7 @@ docker image.
 
 1. Log in on https://hub.docker.com/
 2. Click on *Create Repository*.
-3. Choose a name (e.g. hadleyverse_gapminder) and a description for your repository and click *Create*.
+3. Choose a name (e.g. verse_gapminder) and a description for your repository and click *Create*.
 4. Log into the Docker Hub from the command line
 ```{}
 docker login --username=yourhubusername --email=youremail@company.com
@@ -68,22 +68,25 @@ Login Succeeded
 ```{}
 docker images
 ```
-and what you will see will be similar to
+and what you will see will be similar to   
+
 ```{}
-REPOSITORY                         TAG                 IMAGE ID            CREATED             SIZE
-hadleyverse_gapminder_addpackage   latest              95fc956d3a73        2 days ago          2.902 GB
-hadleyverse_gapminder              latest              6a131c8f7c2b        2 days ago          2.87 GB
-rocker/hadleyverse                 latest              2a039f703dad        3 days ago          2.869 GB
+REPOSITORY              TAG       IMAGE ID         CREATED           SIZE
+verse_gapminder_gsl     latest    023ab91c6291     3 minutes ago     1.975 GB
+verse_gapminder         latest    bb38976d03cf     13 minutes ago    1.955 GB
+rocker/verse            latest    0168d115f220     3 days ago        1.954 GB
+
 ```
 and tag your image
+
 ```{}
-docker tag 6a131c8f7c2b yourhubusername/hadleyverse_gapminder:firsttry
+docker tag bb38976d03cf yourhubusername/verse_gapminder:firsttry
 ```
 The number must match the image ID and `:firsttry` is the tag. In general, a good choice for a tag is something that will help you understand what this container should be used in conjunction with, or what it represents. If this container contains the analysis for a paper, consider using that paper's DOI or journal-issued serial number; if it's meant for use with a particular version of a code or data version control repo, that's a good choice too - whatever will help you understand what this particular image is intended for.
 
 6. Push your image to the repository you created
 ```{}
-docker push yourhubusername/hadleyverse_gapminder
+docker push yourhubusername/verse_gapminder
 ```
 
 Your image is now available for everyone to use.
@@ -100,22 +103,22 @@ Pushing to Docker Hub is great, but it does have some disadvantages:
 Solutions to these problems can be to save the Docker container locally as a a tar archive, and then you can easily load that
 to an image when needed. 
 
-To save a Docker image after you have pulled, committed or built it you use the `docker save` command. For example, lets save a local copy of the `hadleyverse_gapminder` docker image we made:
+To save a Docker image after you have pulled, committed or built it you use the `docker save` command. For example, lets save a local copy of the `verse_gapminder` docker image we made:
 
 ~~~
-docker save hadleyverse_gapminder > hadleyverse_gapminder.tar
+docker save verse_gapminder > verse_gapminder.tar
 ~~~
 
 If we want to load that Docker container from the archived tar file in the future, we can use the docker load command:
 
 ~~~
-docker load --input hadleyverse_gapminder.tar
+docker load --input verse_gapminder.tar
 ~~~
 
 ## Challenge Questions 
 
 - Download your partner's image. How did that compare speed-wise to downloading 
-the hadleyverse image the first time? 
+the verse image the first time? 
 - Browse Docker Hub for interesting images. What could be useful to you?
 - Discuss the pros and cons of using Docker images from someone you don't
 know with your neighbour.

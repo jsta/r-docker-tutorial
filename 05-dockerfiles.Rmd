@@ -12,10 +12,10 @@ Earlier, we got started with a base image that let us run RStudio from within Do
 Dockerfiles are a set of instructions on how to add things to a base image. They build custom images up in a series of *layers*. In a new file called `Dockerfile`, put the following:
 
 ```
-FROM rocker/hadleyverse:latest
+FROM rocker/verse:latest
 ```
 
-This tells Docker to start with the `rocker/hadleyverse` base image - that's what we've been using so far. 
+This tells Docker to start with the `rocker/verse` base image - that's what we've been using so far. 
 The `FROM` command must always be the first thing in your Dockerfile; this is the bottom crust of the pie we are baking.
 
 Next, let's add another layer on top of our base, in order to have `gapminder` pre-installed and ready to go:
@@ -92,15 +92,15 @@ In this lesson, we learned how to compose a Dockerfile so that we can re-create 
 The image is built by running `docker build -t my-r-image .` in the same directory as our Dockerfile and any files we want to include with an `ADD` command.
 
 ## Challenge Questions 
- - Write a Dockerfile that makes an image like the one you made at the end of Section 3: built on `rocker/hadleyverse`, with `gapminder` and `gsl` installed. Also add a readme to your image describing what it contains.
+ - Write a Dockerfile that makes an image like the one you made at the end of Section 3: built on `rocker/verse`, with `gapminder` and `gsl` installed. Also add a readme to your image describing what it contains.
 
-Find the Dockerfile of the `rocker/hadleyverse` image through Docker Hub. 
+Find the Dockerfile of the `rocker/verse` image through Docker Hub. 
 
  - How does having a Dockerfile compare to a README file (like the one we prepared in lesson 3)?
  - Docker Hub can automatically build images when you store the file on Github
  or Bitbucket. What do you think are the benefits of doing this instead of 
  commiting the image directly? Could it be negative?
- - Find the build details of the `rocker/hadleyverse` image. What do they tell us?
+ - Find the build details of the `rocker/verse` image. What do they tell us?
 
 Go to [Lesson 06 Share all your analysis](06-Sharing-all-your-analysis.html) or back to the  
 [main page](http://ropenscilabs.github.io/r-docker-tutorial/).

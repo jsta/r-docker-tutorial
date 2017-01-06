@@ -24,7 +24,7 @@ opts_knit$set(width = 75)
 
 ## Installing R Packages within RStudio
 
-You can install R packages with RStudio in the browser, like you would on a desktop-RStudio-session, by using `install.packages`. Let's launch a hadleyverse Docker container to run RStudio as we did previously, and try to install the gapminder package, and load it and peek at the data.
+You can install R packages with RStudio in the browser, like you would on a desktop-RStudio-session, by using `install.packages`. Let's launch a *verse* Docker container to run RStudio as we did previously, and try to install the gapminder package, and load it and peek at the data.
 
 ~~~
 # install package
@@ -50,16 +50,16 @@ docker ps
 The output should look something like what is shown below, and the specific hash for this container is the alphanumeric text in the first column.
 
 ~~~
-f9ca71428352        rocker/hadleyverse   "/init"             6 seconds ago       Up 5 seconds        1410/tcp, 0.0.0.0:8787->8787/tcp   sick_bhabha
+4a6a528b35da        rocker/verse        "/init"             2 minutes ago       Up 2 minutes        0.0.0.0:8787->8787/tcp   silly_meninsky
 ~~~
 
 Now to save this version of the image, in the new terminal window type:
 
 ~~~
-docker commit -m "hadleyverse + gapminder" f9ca71428352 hadleyverse_gapminder
+docker commit -m "verse + gapminder" 4a6a528b35da verse_gapminder
 ~~~
 
-To save this Docker image we have to provide a commit message to describe the change that we have made to the image. We do this by passing the `-m` flag followed by the message in quotes. We also need to provide the specific hash for this version of the container (here f9ca71428352). Finally, we also provide a new name for the new image. We called this new image `hadleyverse_gapminder`.
+To save this Docker image we have to provide a commit message to describe the change that we have made to the image. We do this by passing the `-m` flag followed by the message in quotes. We also need to provide the specific hash for this version of the container (here 4a6a528b35da). Finally, we also provide a new name for the new image. We called this new image `verse_gapminder`.
 
 We can see that we now have two Docker images saved on our laptops by typing:
 
@@ -68,12 +68,12 @@ docker images
 ~~~
 
 ~~~
-REPOSITORY              TAG                 IMAGE ID            CREATED             SIZE
-hadleyverse_gapminder   latest              1cf34acb0d60        30 minutes ago      2.84 GB
-rocker/hadleyverse      latest              7cba8b06f25e        9 days ago          2.838 GB
+REPOSITORY                           TAG                 IMAGE ID            CREATED             SIZE
+verse_gapminder                      latest              bb38976d03cf        57 seconds ago      1.955 GB
+rocker/verse                         latest              0168d115f220        3 days ago          1.954 GB
 ~~~
 
-You can test that this worked by running a Docker container from each image. You will find that the Gapminder package is only installed on the hadleyverse_gapminder image and not on the rocker/hadleyverse image.
+You can test that this worked by running a Docker container from each image. You will find that the Gapminder package is only installed on the verse_gapminder image and not on the rocker/verse image.
 
 ### Installing Dependencies external to the R system
 
@@ -90,7 +90,7 @@ If you get an error message when running `apt-get install libgsl0-dev` try runni
 
 To save these changes go to yet another terminal window and save as above using `docker commit`, e.g.
 ```
-docker commit -m "hadleyverse + gapminder + GSL" <container id>  hadleyverse_gapminder_gsl
+docker commit -m "verse + gapminder + GSL" <container id>  verse_gapminder_gsl
 ```
 Now you can go to the terminal window in which you typed the `docker exec` command and close the docker container
 by typing `exit`.
@@ -99,7 +99,7 @@ by typing `exit`.
 ## Challenge Questions 
 You or someone else will probably want to check at some point later, what the 
 docker image contains. Write a README file which documents the details of the 
-`hadleyverse_gapminder_gsl` image. For the R packages you can use the output of
+`verse_gapminder_gsl` image. For the R packages you can use the output of
 `installed.packages()`.
 
 
