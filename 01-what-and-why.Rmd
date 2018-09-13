@@ -60,7 +60,7 @@ work with Docker).
 The words *image* and *container* will come up a lot in the following. 
 An instance of an image is called container. An image is the setup of the virtual
 computer. If you run this image, you will have an instance of it, which we call
-containter. You can have many running containers of the same image.
+container. You can have many running containers of the same image.
 
 
 
