@@ -2,7 +2,7 @@
 A docker tutorial for reproducible research.
 
 This is an introduction to Docker designed for participants with knowledge
-about R and RStudio. The introduction is intended to be helping people who need Dockerfor a project. We first explain what Docker is and why it is useful. Then 
+about R and RStudio. The introduction is intended to be helping people who need Docker for a project. We first explain what Docker is and why it is useful. Then 
 we go into the the details on how to use it for a reproducible transportable project.
 
 
