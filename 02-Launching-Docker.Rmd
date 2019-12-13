@@ -49,6 +49,19 @@ Next, we will ask Docker to run an image that already exists, we will use the *v
 docker run --rm -p 8787:8787 rocker/verse
 ~~~
 
+In some situations, the link above may give you an error message: 
+
+~~~
+ERROR: You must set a unique PASSWORD (not 'rstudio') first! e.g. run with:
+docker run  -e PASSWORD=<YOUR_PASS> -p 8787:8787 rocker/rstudio
+~~~
+
+If this happens, simply use the code below:
+
+~~~
+docker run --rm -e PASSWORD=password -p 8787:8787 rocker/rstudio
+~~~
+
 Optional:
 *`p` and `--rm` are flags that allow you to customize how you run the container. `p` tells Docker that you will be using a port to see RStudio in your web browser (at a location which we specify afterwards as port `8787:8787`). Finally, --rm ensures that when we quit the container, the container is deleted. If we did not do this, everytime we run a container, a version of it will be saved to our local computer. This can lead to the eventual wastage of a lot of disk space until we manually remove these containers. Later we will show you how to save your container if you want to do so.
 
@@ -79,7 +92,7 @@ If you are running a Linux machine, you can use `localhost` as the ip address. F
 This should lead to you being greeted by the RStudio welcome screen. Log in using:
 
 username: rstudio
-password: rstudio
+password: password
 
 Now you should be able to work with RStudio in your browser in much the same way as you would on your desktop.
 
@@ -119,7 +132,7 @@ on your own computer, which you can get by doing `pwd` at the bash prompt from y
 
 
 ~~~
-docker run --rm -p 8787:8787 -v /Users/tiffanytimbers/Documents/DC/r-docker-tutorial:/home/rstudio/r-docker-tutorial rocker/verse
+docker run --rm -e PASSWORD=password -p 8787:8787 -v /Users/tiffanytimbers/Documents/DC/r-docker-tutorial:/home/rstudio/r-docker-tutorial rocker/rstudio
 ~~~
 
 Again, you will have to enter something like `http://192.168.99.100:8787` in your browser as the url to get RStudio to run. 

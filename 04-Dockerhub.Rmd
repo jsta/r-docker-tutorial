@@ -56,9 +56,9 @@ docker image.
 3. Choose a name (e.g. verse_gapminder) and a description for your repository and click *Create*.
 4. Log into the Docker Hub from the command line
 ```{}
-docker login --username=yourhubusername --email=youremail@company.com
+docker login --username=yourhubusername 
 ```
-just with your own user name and email that you used for the account.
+just with your own user name that you used for the account.
 Enter your password when prompted. If everything worked you will get a message similar to
 ```{}
 WARNING: login credentials saved in /home/username/.docker/config.json
