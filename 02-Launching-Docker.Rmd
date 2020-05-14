@@ -46,11 +46,11 @@ eval "$(docker-machine env default)"
 Next, we will ask Docker to run an image that already exists, we will use the *verse* Docker image from [Rocker](https://github.com/rocker-org/rocker/wiki) which will allow us to run RStudio inside the container and has many useful R packages already installed. 
 
 ~~~
-docker run --rm -p 8787:8787 rocker/verse
+docker run --rm -p 8787:8787 -e PASSWORD=yourpassword rocker/verse
 ~~~
 
 Optional:
-*`p` and `--rm` are flags that allow you to customize how you run the container. `p` tells Docker that you will be using a port to see RStudio in your web browser (at a location which we specify afterwards as port `8787:8787`). Finally, --rm ensures that when we quit the container, the container is deleted. If we did not do this, everytime we run a container, a version of it will be saved to our local computer. This can lead to the eventual wastage of a lot of disk space until we manually remove these containers. Later we will show you how to save your container if you want to do so.
+`--rm`, `-p`, and `-e` are flags that allow you to customize how you run the container. `-p` tells Docker that you will be using a port to see RStudio in your web browser (at a location which we specify afterwards as port `8787:8787`). `--rm` ensures that when we quit the container, the container is deleted. If we did not do this, everytime we run a container, a version of it will be saved to our local computer. This can lead to the eventual wastage of a lot of disk space until we manually remove these containers. Later we will show you how to save your container if you want to do so. Finally, `-e` sets the `PASSWORD` environmental variable to `yourpassword`. Rocker [requires you to set a password](https://github.com/rocker-org/rocker-versioned/blob/master/rstudio/README.md) when running a container with RStudio in the stack. For security reasons, we recommend that you change `yourpassword` to a your own unique string of characters.
 
 If you try to run a Docker container which you have not installed locally then Docker will automatically search for the container on Docker Hub (an online repository for docker images) and download it if it exists.*
 
@@ -79,7 +79,7 @@ If you are running a Linux machine, you can use `localhost` as the ip address. F
 This should lead to you being greeted by the RStudio welcome screen. Log in using:
 
 username: rstudio
-password: rstudio
+password: (the password you set earlier)
 
 Now you should be able to work with RStudio in your browser in much the same way as you would on your desktop.
 
@@ -104,11 +104,9 @@ plot(x, y)
 
 If you look at your files again now, you will see the script file.
 
-Now, given that we used the `--rm` flag when we launched the Docker container, anything we create on the machine will be gone. Let's verify this. First, close the browser tab where you have RStudio open, and then go to your terminal window from where you launched the Docker container and type Contol+C. This shuts down the 
-Docker container.
+Now, given that we used the `--rm` flag when we launched the Docker container, anything we create on the machine will be gone. Let's verify this. First, close the browser tab where you have RStudio open, and then go to your terminal window from where you launched the Docker container and type Control+C. This shuts down the Docker container.
 
-Now relaunch your a Docker container using the RStudio image as you did previously, e.g., `docker run --rm -p 8787:8787 rocker/verse` in the terminal and typing `http://192.168.99.100:8787` in your browser window and see if the rscript and plot you saved is still there.
-
+Now relaunch your a Docker container using the RStudio image as you did previously, e.g., `docker run --rm -p 8787:8787 -e PASSWORD=yourpassword rocker/verse` in the terminal and typing `http://192.168.99.100:8787` in your browser window and see if the rscript and plot you saved is still there.
 
 ## Linking a volume to a Docker container to access data and save files
 
@@ -119,7 +117,7 @@ on your own computer, which you can get by doing `pwd` at the bash prompt from y
 
 
 ~~~
-docker run --rm -p 8787:8787 -v /Users/tiffanytimbers/Documents/DC/r-docker-tutorial:/home/rstudio/r-docker-tutorial rocker/verse
+docker run --rm -p 8787:8787 -e PASSWORD=yourpassword -v /Users/tiffanytimbers/Documents/DC/r-docker-tutorial:/home/rstudio/r-docker-tutorial rocker/verse
 ~~~
 
 Again, you will have to enter something like `http://192.168.99.100:8787` in your browser as the url to get RStudio to run. 
