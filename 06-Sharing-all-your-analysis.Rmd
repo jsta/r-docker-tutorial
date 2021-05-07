@@ -7,7 +7,7 @@ output:
     highlight: pygments
 ---
 
-Now that we have leanrned how to work with a dockerfile, we can send all our analysis to a collaborator. 
+Now that we have learned how to work with a dockerfile, we can send all our analysis to a collaborator. 
 We will share an image that contains all the dependencies that we need to run our analysis, the data and the analysis.
 
 We will build this image via a dockerfile. Let's start with the basic verse rocker image we used before. 
