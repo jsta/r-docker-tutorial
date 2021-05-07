@@ -18,5 +18,5 @@ we go into the the details on how to use it for a reproducible transportable pro
 6. [Lesson 06 Sharing your analysis](06-Sharing-all-your-analysis.html)
 
 ## Links
-- [Website](http://ropenscilabs.github.io/r-docker-tutorial)
+- [Website](http://jsta.github.io/r-docker-tutorial)
 - [For lesson developers](http://pad.software-carpentry.org/RopenSci-docker-tutorial)
