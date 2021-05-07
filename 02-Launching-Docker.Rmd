@@ -14,11 +14,11 @@ library(knitr)
 ## Global options
 options(max.print = "75")
 opts_chunk$set(cache = TRUE,
-               prompt = FALSE,
-               tidy = TRUE,
-               comment = "> #",
-               message = FALSE,
-               warning = FALSE)
+  prompt = FALSE,
+  tidy = TRUE,
+  comment = "> #",
+  message = FALSE,
+  warning = FALSE)
 opts_knit$set(width = 75)
 ```
 
