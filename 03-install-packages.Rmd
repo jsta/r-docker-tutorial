@@ -104,4 +104,4 @@ docker image contains. Write a README file which documents the details of the
 
 
 Next: Go to [Lesson 04 Dockerhub](04-Dockerhub.html) or back to the 
-[main page](http://ropenscilabs.github.io/r-docker-tutorial/).
+[main page](http://jsta.github.io/r-docker-tutorial/).

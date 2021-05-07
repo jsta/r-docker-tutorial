@@ -111,4 +111,4 @@ docker pull yourhubusername/gapminder_my_analysis:firsttry
 
 They now have the image of your analysis.
 
-Click to go back to the [main page](http://ropenscilabs.github.io/r-docker-tutorial/).
+Click to go back to the [main page](http://jsta.github.io/r-docker-tutorial/).

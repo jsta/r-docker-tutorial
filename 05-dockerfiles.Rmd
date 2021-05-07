@@ -103,4 +103,4 @@ Find the Dockerfile of the `rocker/verse` image through Docker Hub.
  - Find the build details of the `rocker/verse` image. What do they tell us?
 
 Go to [Lesson 06 Share all your analysis](06-Sharing-all-your-analysis.html) or back to the  
-[main page](http://ropenscilabs.github.io/r-docker-tutorial/).
+[main page](http://jsta.github.io/r-docker-tutorial/).

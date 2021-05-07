@@ -1,6 +1,6 @@
 ## Instructor's Guide
 
-This file contains the collected tips and tricks for teaching this lesson. After you teach it, please add your comments by sending us a pull request, or letting us know in an [issue](https://github.com/ropenscilabs/r-docker-tutorial/issues).
+This file contains the collected tips and tricks for teaching this lesson. After you teach it, please add your comments by sending us a pull request, or letting us know in an [issue](https://github.com/jsta/r-docker-tutorial/issues).
 
 ### General
 

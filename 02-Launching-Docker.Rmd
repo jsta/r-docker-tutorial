@@ -159,5 +159,5 @@ in RStudio in your browser.
 
 
 Next: Go to [Lesson 03 Install packages](03-install-packages.html) or back to the 
-[main page](http://ropenscilabs.github.io/r-docker-tutorial/).
+[main page](http://jsta.github.io/r-docker-tutorial/).
 
