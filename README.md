@@ -20,3 +20,8 @@ we go into the the details on how to use it for a reproducible transportable pro
 ## Links
 - [Website](http://jsta.github.io/r-docker-tutorial)
 - [For lesson developers](http://pad.software-carpentry.org/RopenSci-docker-tutorial)
+
+
+## Credit
+
+Formerly an rOpenSci project started at the [2016 Unconference](https://unconf16.ropensci.org/). Credit to all the [contributors](https://github.com/jsta/r-docker-tutorial/graphs/contributors)!
