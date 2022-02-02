@@ -73,9 +73,9 @@ Choose a name (e.g. gapminder_my_analysis) and a description for your repository
 
 Log into the Docker Hub from the command line
 ```{}
-docker login --username=yourhubusername --email=youremail@company.com
+docker login --username=yourhubusername
 ```
-just with your own user name and email that you used for the account.
+just with your own user name that you used for the account.
 Enter your password when prompted. 
 
 Check the image ID using
@@ -110,5 +110,6 @@ docker pull yourhubusername/gapminder_my_analysis:firsttry
 ```
 
 They now have the image of your analysis.
+
 
 Click to go back to the [main page](http://jsta.github.io/r-docker-tutorial/).

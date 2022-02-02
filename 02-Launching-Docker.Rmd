@@ -43,10 +43,10 @@ eval "$(docker-machine env default)"
 ~~~
 
 
-Next, we will ask Docker to run an image that already exists, we will use the *verse* Docker image from [Rocker](https://github.com/rocker-org/rocker/wiki) which will allow us to run RStudio inside the container and has many useful R packages already installed. 
+Next, we will ask Docker to run an image that already exists, we will use the *verse* Docker image from [Rocker](https://github.com/rocker-org/rocker/wiki) which will allow us to run RStudio inside the container and has many useful R packages already installed. You need to set a password for RStudio using the -e environment flag. You will be asked to enter this when the container launches.
 
 ~~~
-docker run --rm -p 8787:8787 rocker/verse
+docker run --rm -p 8787:8787 -e PASSWORD=YOURNEWPASSWORD rocker/verse
 ~~~
 
 Optional:
@@ -74,14 +74,14 @@ For help getting started, check out the docs at https://docs.docker.com
 
 Thus, you would enter `http://192.168.99.100:8787` in your browser as the url.
 
-If you are running a Linux machine, you can use `localhost` as the ip address. For example: `http://localhost:8787`
+If you are running a Mac or Linux machine, you can use `localhost` as the ip address. For example: `http://localhost:8787`
 
 This should lead to you being greeted by the RStudio welcome screen. Log in using:
 
 username: rstudio
-password: rstudio
+password: YOURNEWPASSWORD
 
-Now you should be able to work with RStudio in your browser in much the same way as you would on your desktop.
+Now you should be able to work with RStudio in your browser in much the same way as you would on your desktop. The password you should use is the one you created when you used `docker run` above.
 
 The image below shows RStudio server running within a docker image. You should see something similar on your machine.
 
