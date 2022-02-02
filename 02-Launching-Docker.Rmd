@@ -76,10 +76,14 @@ Thus, you would enter `http://192.168.99.100:8787` in your browser as the url.
 
 If you are running a Linux machine, you can use `localhost` as the ip address. For example: `http://localhost:8787`
 
-This should lead to you being greeted by the RStudio welcome screen. Log in using:
+This should lead to you being greeted by the RStudio welcome screen. We will log in using username and password. The username is defined by the rocker/verse image, in this case the user is "rstudio" (see the README.md file of the rocker/verse image for more details  [link](https://github.com/rocker-org/rocker-versioned/blob/master/rstudio/README.md)). The password can be specified by passing `-e PASSWORD=yourpasswordhere` to the docker run command:
 
-username: rstudio
-password: rstudio
+~~~
+docker run --rm -p 8787:8787 -e PASSWORD=yourpasswordhere rocker/verse
+~~~
+
+Or if we don't specify the password, docker will generate one for us and display it in the terminal. For example: `The password is set to phei3sheidoa5Kij`
+
 
 Now you should be able to work with RStudio in your browser in much the same way as you would on your desktop.
 
