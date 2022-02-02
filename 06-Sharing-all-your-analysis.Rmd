@@ -7,8 +7,8 @@ output:
     highlight: pygments
 ---
 
-Now that we have leanrned how to work with a dockerfile, we can send all our analysis to a collaborator. 
-We will share an image that contains all the dependencies that we need to ran our analysis, the data and the analysis.
+Now that we have learned how to work with a dockerfile, we can send all our analysis to a collaborator. 
+We will share an image that contains all the dependencies that we need to run our analysis, the data and the analysis.
 
 We will build this image via a dockerfile. Let's start with the basic verse rocker image we used before. 
 This time we want to have a specific R version (3.3.2), which the developers make possible by tagging the images with the version.
@@ -36,9 +36,8 @@ On a new R script let's write the following analysis.
 library(ggplot2)
 library(gapminder)
 
-life_expentancy_plot <- ggplot(data = gapminder) + 
-	geom_point(aes(x = lifeExp, y = gdpPercap, colour = continent)) 
-
+life_expentancy_plot <- ggplot(data = gapminder) +
+  geom_point(aes(x = lifeExp, y = gdpPercap, colour = continent))
 ```
 
 We will save this r script as analysis.R and add it to our dockerfile.
@@ -112,4 +111,5 @@ docker pull yourhubusername/gapminder_my_analysis:firsttry
 
 They now have the image of your analysis.
 
-Click to go back to the [main page](http://ropenscilabs.github.io/r-docker-tutorial/).
+
+Click to go back to the [main page](http://jsta.github.io/r-docker-tutorial/).
