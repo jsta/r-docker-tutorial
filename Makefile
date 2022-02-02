@@ -10,3 +10,7 @@ test:
 
 %.html: %.Rmd
 	Rscript -e "rmarkdown::render('$<')"
+
+deps:
+	Rscript -e 'devtools::install_github("karthik/dcTemplate")'
+	Rscript -e 'install.packages("gapminder", repos = "https://cloud.r-project.org")'
